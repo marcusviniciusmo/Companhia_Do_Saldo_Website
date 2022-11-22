@@ -1,31 +1,29 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MenuProps } from '../../types/Menu';
+import { MockedData } from '../../mocks/Menu';
 
 export function Menu() {
+  const [mockedData, setMockedData] = useState<MenuProps[]>([]);
+
+  useEffect(() => {
+    setMockedData(MockedData)
+  }, []);
+
   return (
     <>
       <h1>MENU Component</h1>
       <h1>Menu Principal</h1>
 
-      <Link to='/'>
-        <h4>Home</h4>
-      </Link>
-
-      <Link to='/products'>
-        <h4>Produtos</h4>
-      </Link>
-
-      <Link to='/suppliers'>
-        <h4>Fornecedores</h4>
-      </Link>
-
-      <Link to='/orders'>
-        <h4>Pedidos</h4>
-      </Link>
-
-      <Link to='/contact'>
-        <h4>Contato</h4>
-      </Link>
-
+      {
+        mockedData.map((option) => {
+          return (
+            <Link to={option.to} key={option.id}>
+              <h4>{option.label}</h4>
+            </Link>
+          )
+        })
+      }
     </>
   );
 };
