@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 
 export function Suppliers() {
   return (
@@ -146,14 +147,7 @@ export function Suppliers() {
         11 milhōes de metros produzidos por dia."
       </p>
 
-      <h1>FOOTER</h1>
-      <p>
-        Copyright &copy; 2016 Companhia do Saldo. Todos os direitos reservados.
-        Facebook
-        Instagram
-        Home
-        Contato
-      </p>
+      <Footer />
     </>
   );
 };

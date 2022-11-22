@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   return (
@@ -37,14 +38,7 @@ export function Home() {
       <h3>Atualizado em 21/Maio/2022</h3>
       <h3>AQUI VAI UMA IMAGEM</h3>
 
-      <h1>FOOTER</h1>
-      <p>
-        Copyright &copy; 2016 Companhia do Saldo. Todos os direitos reservados.
-        Facebook
-        Instagram
-        Home
-        Contato
-      </p>
+      <Footer />
     </>
   );
 };
