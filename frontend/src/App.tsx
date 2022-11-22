@@ -1,7 +1,13 @@
+import { Home } from "./views/Home";
+import { Products } from "./views/Products";
+import { Suppliers } from "./views/Suppliers";
+import { Orders } from "./views/Orders";
+import { Contact } from "./views/Contact";
+
 function App() {
   return (
-    <h1>Companhia do Saldo</h1>
-  )
-}
+    <Contact />
+  );
+};
 
 export default App
