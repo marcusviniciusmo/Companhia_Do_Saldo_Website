@@ -1,0 +1,2 @@
+// Create React Project Vite
+npm create vite@latest
