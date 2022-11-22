@@ -3,3 +3,7 @@ npm create vite@latest
 
 // React Router Dom
 npm i react-router-dom
+
+// Styled Components
+npm i styled-components
+npm i @types/styled-components
