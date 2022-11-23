@@ -11,9 +11,10 @@ export function Contact() {
       <Header />
 
       <h1>BODY</h1>
-      <Breadcrumb />
-      <h3>Fale Conosco &gt; Contato</h3>
-      <h1>Sugestōes e Reclamaçōes</h1>
+      <Breadcrumb
+        path='Contato &gt; Fale Conosco'
+        title='Sugestōes e Reclamaçōes'
+      />
 
       <p>
         Ajude-nos a melhorar o nosso atendimento. Reclamaçōes, dúvidas, sugestōes,

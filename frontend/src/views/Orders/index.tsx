@@ -11,9 +11,10 @@ export function Orders() {
       <Header />
 
       <h1>BODY</h1>
-      <Breadcrumb />
-      <h3>Cadastro &gt; Pedido</h3>
-      <h1>Formulário de Cadastro</h1>
+      <Breadcrumb
+        path='Pedidos &gt; Formulário'
+        title='Formulário de Cadastro'
+      />
 
       <p>
         Gostaria de facilitar suas compras? Se cadastre, e com isso, você poderá

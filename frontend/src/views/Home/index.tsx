@@ -11,8 +11,9 @@ export function Home() {
       <Header />
 
       <h1>BODY</h1>
-      <Breadcrumb />
-      <h3>Início &gt; Home</h3>
+      <Breadcrumb
+        path='Home &gt; Início'
+      />
 
       <h2>A Empresa</h2>
       <p>

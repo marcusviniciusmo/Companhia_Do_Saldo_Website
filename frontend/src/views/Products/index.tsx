@@ -11,9 +11,10 @@ export function Products() {
       <Header />
 
       <h1>BODY</h1>
-      <Breadcrumb />
-      <h3>Imagem &gt; Galeria</h3>
-      <h1>Galeria</h1>
+      <Breadcrumb
+        path='Produtos &gt; Galeria'
+        title='Produtos'
+      />
 
       <p>
         Veja nossa galeria de fotos, com várias imagens de estampas do que temos

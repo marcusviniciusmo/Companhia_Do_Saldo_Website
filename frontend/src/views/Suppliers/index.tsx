@@ -11,9 +11,10 @@ export function Suppliers() {
       <Header />
 
       <h1>BODY</h1>
-      <Breadcrumb />
-      <h3>Equipe &gt; Fornecedores</h3>
-      <h1>Fornecedores</h1>
+      <Breadcrumb
+        path='Fornecedores &gt; Equipe'
+        title='Fornecedores'
+      />
 
       <p>
         Nós crescemos junto com nossos clientes. Conheça nossos parceiros e veja
