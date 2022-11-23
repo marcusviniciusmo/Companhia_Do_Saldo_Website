@@ -1,3 +1,4 @@
+import Store from '../../assets/about/store.jpg';
 import { GetAgeOfStore } from "../../utils/Functions";
 
 export function About() {
@@ -12,7 +13,7 @@ export function About() {
         de malhas, oferecendo serviços de qualidade, confiança e credibilidade.
       </p>
 
-      <h3>AQUI VAI UMA IMAGEM</h3>
+      <img src={Store} alt="Companhia do Saldo" />
       <h3>Companhia do Saldo</h3>
       <p>Venha conhecer.</p>
     </>
