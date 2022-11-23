@@ -5,10 +5,11 @@ import { About } from "../../components/About";
 import { Localization } from "../../components/Localization";
 import { Aside } from "../../components/Aside";
 import { Footer } from "../../components/Footer";
+import { Interface } from "../../styles/Interface";
 
 export function Home() {
   return (
-    <>
+    <Interface>
       <h1>VIEW HOME</h1>
       <h1>Companhia do Saldo - Página Home</h1>
 
@@ -34,6 +35,6 @@ export function Home() {
       </Aside>
 
       <Footer />
-    </>
+    </Interface>
   );
 };

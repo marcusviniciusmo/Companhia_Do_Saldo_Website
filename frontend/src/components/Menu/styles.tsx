@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   display: block;
-  position: relative;
 `;
 
 export const Title = styled.h1`
@@ -14,7 +13,7 @@ export const Options = styled.ul`
   flex-direction: row;
   position: absolute;
   top: -2rem;
-  left: 63rem;
+  left: 60rem;
 `;
 
 
