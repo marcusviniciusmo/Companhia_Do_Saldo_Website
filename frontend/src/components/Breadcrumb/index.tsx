@@ -1,11 +1,11 @@
 import { BreadcrumbProps } from "../../types/Breadcrumb";
+import { HGroup, Path, Title } from "./styles";
 
 export function Breadcrumb(props: BreadcrumbProps) {
   return (
-    <>
-      <h1>BREADCRUMB Component</h1>
-      <h3>{props.path}</h3>
-      <h1>{props.title}</h1>
-    </>
+    <HGroup>
+      <Path>{props.path}</Path>
+      <Title>{props.title}</Title>
+    </HGroup>
   );
 };
