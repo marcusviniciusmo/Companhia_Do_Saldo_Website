@@ -4,6 +4,7 @@ import { Section } from "../../components/Section";
 import { About } from "../../components/About";
 import { Localization } from "../../components/Localization";
 import { Aside } from "../../components/Aside";
+import { News } from "../../components/News";
 import { Footer } from "../../components/Footer";
 import { Interface } from "../../styles/Interface";
 
@@ -27,11 +28,7 @@ export function Home() {
       </Section>
 
       <Aside>
-        <h3>Novidades!</h3>
-        <h1>Não perca essas novidades!!</h1>
-        <h2>por Marcus Vinícius</h2>
-        <h3>Atualizado em 21/Maio/2022</h3>
-        <h3>AQUI VAI UMA IMAGEM</h3>
+        <News />
       </Aside>
 
       <Footer />
