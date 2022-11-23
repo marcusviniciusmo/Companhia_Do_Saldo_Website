@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import { Footer } from "../../components/Footer";
 
 export function Products() {
@@ -10,6 +11,7 @@ export function Products() {
       <Header />
 
       <h1>BODY</h1>
+      <Breadcrumb />
       <h3>Imagem &gt; Galeria</h3>
       <h1>Galeria</h1>
 

@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import { Footer } from "../../components/Footer";
 
 export function Contact() {
@@ -10,6 +11,7 @@ export function Contact() {
       <Header />
 
       <h1>BODY</h1>
+      <Breadcrumb />
       <h3>Fale Conosco &gt; Contato</h3>
       <h1>Sugestōes e Reclamaçōes</h1>
 

@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import { Footer } from "../../components/Footer";
 
 export function Orders() {
@@ -10,6 +11,7 @@ export function Orders() {
       <Header />
 
       <h1>BODY</h1>
+      <Breadcrumb />
       <h3>Cadastro &gt; Pedido</h3>
       <h1>Formulário de Cadastro</h1>
 

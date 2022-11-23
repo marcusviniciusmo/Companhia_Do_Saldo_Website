@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header";
+import { Breadcrumb } from "../../components/Breadcrumb";
 import { Footer } from "../../components/Footer";
 
 export function Home() {
@@ -10,6 +11,7 @@ export function Home() {
       <Header />
 
       <h1>BODY</h1>
+      <Breadcrumb />
       <h3>Início &gt; Home</h3>
 
       <h2>A Empresa</h2>
