@@ -11,12 +11,8 @@ import { Interface } from "../../styles/Interface";
 export function Home() {
   return (
     <Interface>
-      <h1>VIEW HOME</h1>
-      <h1>Companhia do Saldo - Página Home</h1>
-
       <Header />
 
-      <h1>BODY</h1>
       <Breadcrumb
         path='Home &gt; Início'
       />
