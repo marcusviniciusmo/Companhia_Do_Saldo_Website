@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { GalleryProps } from "../../types/Gallery";
 import { MockedData } from "../../mocks/Gallery";
+import { ViewHeaderText } from "../../styles/ViewHeaderText";
+import { Container, List, Link, Item, Text } from './styles';
 
 export function Gallery() {
   const [mockedData, setMockedData] = useState<GalleryProps>();
@@ -10,24 +12,22 @@ export function Gallery() {
   }, []);
 
   return (
-    <>
-      <h1>GALLERY Component</h1>
+    <Container>
+      <ViewHeaderText>{mockedData?.text}</ViewHeaderText>
 
-      <p>{mockedData?.text}</p>
-
-      <ul>
+      <List>
         {
           mockedData?.images.map((image) => {
             return (
-              <a href="#" key={image.id}>
-                <li id={image.id}>
-                  <span>{image.span}</span>
-                </li>
-              </a>
+              <Link href="#" key={image.id}>
+                <Item id={image.id}>
+                  <Text>{image.span}</Text>
+                </Item>
+              </Link>
             )
           })
         }
-      </ul>
-    </>
+      </List>
+    </Container>
   );
 };
