@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Header, HGroup, Title, Subtitle, Text } from './styles';
+import { Container, Header, HGroup, Title, Subtitle, Text, Items, Image, Row, Date, TitleItem } from './styles';
 import { NewsProps } from '../../types/News';
 import { MockedData } from '../../mocks/News';
 
@@ -25,14 +25,14 @@ export function News() {
         {
           mockedData?.items.map((item) => {
             return (
-              <div key={item.id}>
-                <img src={item.image.url} alt={item.image.description} />
+              <Items key={item.id}>
+                <Image src={item.image.url} alt={item.image.description} />
 
-                <p>
-                  <span>{item.date}</span>
-                  <span>{item.title}</span>
-                </p>
-              </div>
+                <Row>
+                  <Date>{item.date}</Date>
+                  <TitleItem>{item.title}</TitleItem>
+                </Row>
+              </Items>
             )
           })
         }
