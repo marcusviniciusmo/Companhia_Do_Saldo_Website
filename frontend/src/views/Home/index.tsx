@@ -2,6 +2,7 @@ import { Header } from "../../components/Header";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { Section } from "../../components/Section";
 import { About } from "../../components/About";
+import { Localization } from "../../components/Localization";
 import { Aside } from "../../components/Aside";
 import { Footer } from "../../components/Footer";
 
@@ -21,14 +22,7 @@ export function Home() {
       <Section>
         <About />
 
-        <h2>Localização</h2>
-        <p>
-          Rua 24 de Maio,
-          Número: 872
-          Centro, Fortaleza-CE
-          Localizada entre a Rua Pedro Pereira e a Rua Pedro I.
-        </p>
-        <h3>AQUI VAI UM MAPA</h3>
+        <Localization />
       </Section>
 
       <Aside>
