@@ -1,7 +1,10 @@
 import { AsideProps } from "../../types/Aside";
+import { Container } from "./styles";
 
 export function Aside(props: AsideProps) {
   return (
-    <>{props.children}</>
+    <Container>
+      {props.children}
+    </Container>
   );
 };
