@@ -8,5 +8,6 @@ export interface FooterProps {
     url: string;
     title: string;
     target?: string;
+    color: string;
   }[];
 };

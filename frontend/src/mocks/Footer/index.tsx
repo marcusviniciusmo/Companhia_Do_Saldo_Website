@@ -11,26 +11,30 @@ export const MockedData: FooterProps = {
       icon: BsFacebook,
       url: 'http://facebook.com/ciasaldo',
       title: 'Facebook',
-      target: '_blank'
+      target: '_blank',
+      color: 'var(--color-icon-facebook)'
     },
     {
       id: 2,
       icon: BsInstagram,
       url: 'https://www.instagram.com/companhiadosaldo',
       title: 'Instagram',
-      target: '_blank'
+      target: '_blank',
+      color: 'var(--color-icon-instagram)'
     },
     {
       id: 3,
       icon: BsFillHouseFill,
       url: '/',
       title: 'Home',
+      color: 'var(--color-icon-home)'
     },
     {
       id: 4,
       icon: BsFillTelephoneFill,
       url: '/contact',
       title: 'Contato',
+      color: 'var(--color-icon-contact)'
     }
   ]
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FooterProps } from '../../types/Footer';
 import { MockedData } from '../../mocks/Footer';
+import { Container, Text, Icons, Icon } from './styles';
 
 export function Footer() {
   const [mockedData, setMockedData] = useState<FooterProps>();
@@ -10,23 +11,25 @@ export function Footer() {
   }, []);
 
   return (
-    <>
-      <h1>FOOTER Component</h1>
-      <p>
-        {mockedData?.text}
+    <Container>
+      <Text>{mockedData?.text}</Text>
 
-        <>
-          {
-            mockedData?.icons.map((icon) => {
-              return (
-                <a href={icon.url} key={icon.id} target={icon.target}>
-                  <icon.icon />
-                </a>
-              )
-            })
-          }
-        </>
-      </p>
-    </>
+      <Icons>
+        {
+          mockedData?.icons.map((icon) => {
+            return (
+              <Icon
+                key={icon.id}
+                href={icon.url}
+                title={icon.title}
+                target={icon.target}
+              >
+                <icon.icon color={icon.color} />
+              </Icon>
+            )
+          })
+        }
+      </Icons>
+    </Container>
   );
 };

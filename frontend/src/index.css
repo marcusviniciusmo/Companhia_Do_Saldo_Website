@@ -7,6 +7,11 @@
 
   --shadow-color: #00000099;
 
+  --color-icon-contact: #04A784;
+  --color-icon-facebook: #0E8EF2;
+  --color-icon-instagram: #FD5949;
+  --color-icon-home: #0033FF;
+
   font-size: 62.5% /* 1rem = 10px */;
 }
 
