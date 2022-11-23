@@ -1,21 +1,27 @@
-import Store from '../../assets/about/store.jpg';
-import { GetAgeOfStore } from "../../utils/Functions";
+import { useEffect, useState } from 'react';
+import { AboutProps } from '../../types/About';
+import { MockedData } from '../../mocks/About';
 
 export function About() {
+  const [mockedData, setMockedData] = useState<AboutProps>();
+
+  useEffect(() => {
+    setMockedData(MockedData)
+  }, []);
+
   return (
     <>
       <h1>ABOUT Component</h1>
-      
-      <h2>A Empresa</h2>
-      <p>
-        A Companhia do Saldo, mais conhecida como Saldão, está há quase {
-        GetAgeOfStore()} anos no mercado. Uma loja de tecidos, especificamente
-        de malhas, oferecendo serviços de qualidade, confiança e credibilidade.
-      </p>
 
-      <img src={Store} alt="Companhia do Saldo" />
-      <h3>Companhia do Saldo</h3>
-      <p>Venha conhecer.</p>
+      <h2>{mockedData?.title}</h2>
+      <p>{mockedData?.text}</p>
+
+      <img
+        src={mockedData?.image.url}
+        alt={mockedData?.image.description}
+      />
+      <h3>{mockedData?.figcaptionTitle}</h3>
+      <p>{mockedData?.figcaptionText}</p>
     </>
   );
 };
