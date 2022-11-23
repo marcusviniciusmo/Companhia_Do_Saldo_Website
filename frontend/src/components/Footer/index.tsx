@@ -1,20 +1,31 @@
-import { BsFacebook, BsInstagram, BsFillHouseFill, BsFillTelephoneFill } from 'react-icons/bs';
-import { GetCurrentYear } from "../../utils/Functions";
+import { useEffect, useState } from 'react';
+import { FooterProps } from '../../types/Footer';
+import { MockedData } from '../../mocks/Footer';
 
 export function Footer() {
+  const [mockedData, setMockedData] = useState<FooterProps>();
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
+
   return (
     <>
       <h1>FOOTER Component</h1>
       <p>
-        Copyright &copy; {GetCurrentYear()} Companhia do Saldo. Todos os direitos reservados.
+        {mockedData?.text}
 
-        <BsFacebook />
-
-        <BsInstagram />
-
-        <BsFillHouseFill />
-
-        <BsFillTelephoneFill />
+        <>
+          {
+            mockedData?.icons.map((icon) => {
+              return (
+                <a href={icon.url} key={icon.id} target={icon.target}>
+                  <icon.icon />
+                </a>
+              )
+            })
+          }
+        </>
       </p>
     </>
   );
