@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AboutProps } from '../../types/About';
 import { MockedData } from '../../mocks/About';
+import { Container, Title, Text, Figure, Image, Figcaption } from './styles';
 
 export function About() {
   const [mockedData, setMockedData] = useState<AboutProps>();
@@ -10,18 +11,21 @@ export function About() {
   }, []);
 
   return (
-    <>
-      <h1>ABOUT Component</h1>
+    <Container>
+      <Title className='articleTitle'>{mockedData?.title}</Title>
+      <Text>{mockedData?.text}</Text>
 
-      <h2>{mockedData?.title}</h2>
-      <p>{mockedData?.text}</p>
+      <Figure>
+        <Image
+          src={mockedData?.image.url}
+          alt={mockedData?.image.description}
+        />
 
-      <img
-        src={mockedData?.image.url}
-        alt={mockedData?.image.description}
-      />
-      <h3>{mockedData?.figcaptionTitle}</h3>
-      <p>{mockedData?.figcaptionText}</p>
-    </>
+        <Figcaption>
+          <Title>{mockedData?.figcaptionTitle}</Title>
+          <Text>{mockedData?.figcaptionText}</Text>
+        </Figcaption>
+      </Figure>
+    </Container>
   );
 };
