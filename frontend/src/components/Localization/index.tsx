@@ -1,3 +1,5 @@
+import { Map } from "../Map";
+
 export function Localization() {
   return (
     <>
@@ -11,6 +13,8 @@ export function Localization() {
         Localizada entre a Rua Pedro Pereira e a Rua Pedro I.
       </p>
       <h3>AQUI VAI UM MAPA</h3>
+
+      <Map />
     </>
   );
 };
