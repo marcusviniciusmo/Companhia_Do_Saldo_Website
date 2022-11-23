@@ -1,21 +1,33 @@
+import { useEffect, useState } from "react";
+import { GalleryProps } from "../../types/Gallery";
+import { MockedData } from "../../mocks/Gallery";
+
 export function Gallery() {
+  const [mockedData, setMockedData] = useState<GalleryProps>();
+
+  useEffect(() => {
+    setMockedData(MockedData)
+  }, []);
+
   return (
     <>
       <h1>GALLERY Component</h1>
 
-      <p>
-        Veja nossa galeria de fotos, com várias imagens de estampas do que temos
-        em estoque e até mesmo das novidades, tabela de cores de cada linha de
-        produto, e conheça também, a nossa equipe. Tudo isto, basta apenas
-        clicar na categoria abaixo desejada.
-      </p>
+      <p>{mockedData?.text}</p>
 
-      <h3>AQUI VAI UMA IMAGEM</h3>
-      <h3>AQUI VAI UMA IMAGEM</h3>
-      <h3>AQUI VAI UMA IMAGEM</h3>
-      <h3>AQUI VAI UMA IMAGEM</h3>
-      <h3>AQUI VAI UMA IMAGEM</h3>
-      <h3>AQUI VAI UMA IMAGEM</h3>
+      <ul>
+        {
+          mockedData?.images.map((image) => {
+            return (
+              <a href="#" key={image.id}>
+                <li id={image.id}>
+                  <span>{image.span}</span>
+                </li>
+              </a>
+            )
+          })
+        }
+      </ul>
     </>
   );
 };
