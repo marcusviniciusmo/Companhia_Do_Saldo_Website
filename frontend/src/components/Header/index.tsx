@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu } from "../Menu";
 import { HeaderProps } from "../../types/Header";
 import { MockedData } from "../../mocks/Header";
+import { Container, Title, Image } from "./styles";
 
 export function Header() {
   const [mockedData, setMockedData] = useState<HeaderProps>();
@@ -11,12 +12,11 @@ export function Header() {
   }, []);
 
   return (
-    <>
-      <h1>HEADER Component</h1>
-      <h1>{mockedData?.title}</h1>
-      <img src={mockedData?.image.url} alt={mockedData?.image.description} />
+    <Container>
+      <Title>{mockedData?.title}</Title>
+      <Image src={mockedData?.image.url} alt={mockedData?.image.description} />
       
       <Menu />
-    </>
+    </Container>
   );
 };
