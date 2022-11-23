@@ -7,3 +7,6 @@ npm i react-router-dom
 // Styled Components
 npm i styled-components
 npm i @types/styled-components
+
+// React Icons
+npm install react-icons --save
