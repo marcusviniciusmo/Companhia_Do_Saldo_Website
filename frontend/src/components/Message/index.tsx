@@ -1,4 +1,5 @@
 import { Input } from "../Input";
+import { Textarea } from "../Textarea";
 
 export function Message() {
   return (
@@ -10,7 +11,7 @@ export function Message() {
       <Input />
 
       <h4>Mensagem:</h4>
-      <Input />
+      <Textarea />
     </>
   );
 };
