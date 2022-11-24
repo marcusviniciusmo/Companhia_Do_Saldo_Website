@@ -1,3 +1,5 @@
+import { SupplierCard } from "../SupplierCard"
+
 export function Supplier() {
   return (
     <>
@@ -7,6 +9,8 @@ export function Supplier() {
         Nós crescemos junto com nossos clientes. Conheça nossos parceiros e veja
         a equipe de peso por trás do seu sucesso.
       </p>
+
+      <SupplierCard />
 
       <h1>Adar</h1>
       <h3>AQUI VAI UMA IMAGEM</h3>
