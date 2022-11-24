@@ -1,6 +1,14 @@
-import { SupplierCardProps } from "../../types/SupplierCard";
+import { useEffect, useState } from "react";
+import { SupplierCardMocks, SupplierCardProps } from "../../types/SupplierCard";
+import { MockedData } from "../../mocks/SupplierCard";
 
 export function SupplierCard(props: SupplierCardProps) {
+  const [mockedData, setMockedData] = useState<SupplierCardMocks>();
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
+
   return (
     <>
       <h1>SUPPLIER CARD Component</h1>
@@ -10,7 +18,7 @@ export function SupplierCard(props: SupplierCardProps) {
       <span>{props.title}</span>
       <span>{props.text}</span>
 
-      <button>{}</button>
+      <button>{mockedData?.buttonText}</button>
     </>
   );
 };
