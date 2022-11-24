@@ -10,7 +10,12 @@ export function Supplier() {
         a equipe de peso por trás do seu sucesso.
       </p>
 
-      <SupplierCard />
+      <SupplierCard
+        id={1}
+        image={{ url: '', description: ''}}
+        title=''
+        text=''
+      />
 
       <h1>Adar</h1>
       <h3>AQUI VAI UMA IMAGEM</h3>

@@ -1,12 +1,14 @@
-export function SupplierCard() {
+import { SupplierCardProps } from "../../types/SupplierCard";
+
+export function SupplierCard(props: SupplierCardProps) {
   return (
     <>
       <h1>SUPPLIER CARD Component</h1>
 
-      <img src="" alt="" />
+      <img src={props.image.url} alt={props.image.description} />
 
-      <span>{}</span>
-      <span>{}</span>
+      <span>{props.title}</span>
+      <span>{props.text}</span>
 
       <button>{}</button>
     </>
