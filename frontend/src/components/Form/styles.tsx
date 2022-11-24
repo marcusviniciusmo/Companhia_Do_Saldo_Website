@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   padding: 1rem;
   border: none;
   border-radius: 1rem;
@@ -16,4 +16,28 @@ export const View = styled.iframe`
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   box-sizing: border-box;
+`;
+
+export const Bottom = styled.div`
+  display: flex;
+  justify-content: right;
+  margin-right: 1rem;
+`;
+
+export const Button = styled.button`
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  width: 12rem;
+  height: 3.5rem;
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-secondary);
+    color: var(--color-auxiliar);
+  }
 `;

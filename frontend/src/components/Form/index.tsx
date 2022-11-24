@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "../ProgressBar";
 import { FormProps } from "../../types/Form";
 import { MockedData } from "../../mocks/Form";
-import { Container, View } from "./styles";
+import { Container, View, Bottom, Button } from "./styles";
 
 export function Form() {
   const [mockedData, setMockedData] = useState<FormProps>();
@@ -12,14 +12,12 @@ export function Form() {
     setMockedData(MockedData)
   }, []);
 
-  const prevForm = () => {
-    if (index > 0)
-      setIndex(index - 1);
-  };
-
-  const nextForm = () => {
-    if (index + 1 < mockedData?.content!?.length)
-      setIndex(index + 1);
+  const handleForm = (id: string) => {
+    if (id === 'prev') {
+      index > 0 && setIndex(index - 1);
+    } else {
+      index + 1 < mockedData?.content!?.length && setIndex(index + 1);
+    };
   };
 
   return (
@@ -30,8 +28,16 @@ export function Form() {
 
       <View src={mockedData?.content[index]} />
 
-      <button onClick={prevForm}>Voltar</button>
-      <button onClick={nextForm}>Avançar</button>
+      <Bottom>
+        {
+          index > 0 &&
+          <Button id='prev' onClick={() => handleForm('prev')}>Voltar</Button>
+        }
+        {
+          index + 1 < mockedData?.content!?.length &&
+          <Button id='next' onClick={() => handleForm('next')}>Avançar</Button>
+        }
+      </Bottom>
     </Container>
   );
 };
