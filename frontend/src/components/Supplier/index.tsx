@@ -21,6 +21,7 @@ export function Supplier() {
           mockedData?.suppliers.map((supplier) => {
             return (
               <SupplierCard
+                key={supplier.id}
                 id={supplier.id}
                 image={supplier.image}
                 title={supplier.title}

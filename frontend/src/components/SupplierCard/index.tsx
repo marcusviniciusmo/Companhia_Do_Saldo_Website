@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SupplierCardMocks, SupplierCardProps } from "../../types/SupplierCard";
 import { MockedData } from "../../mocks/SupplierCard";
+import { Container, Top, Image, Bottom, Title, Text, Button } from "./styles";
 
 export function SupplierCard(props: SupplierCardProps) {
   const [mockedData, setMockedData] = useState<SupplierCardMocks>();
@@ -10,15 +11,17 @@ export function SupplierCard(props: SupplierCardProps) {
   }, []);
 
   return (
-    <>
-      <h1>SUPPLIER CARD Component</h1>
+    <Container>
+      <Top>
+        <Image src={props.image.url} alt={props.image.description} />
+      </Top>
 
-      <img src={props.image.url} alt={props.image.description} />
+      <Bottom>
+        <Title>{props.title}</Title>
+        <Text>{props.text}</Text>
 
-      <span>{props.title}</span>
-      <span>{props.text}</span>
-
-      <button>{mockedData?.buttonText}</button>
-    </>
+        <Button>{mockedData?.buttonText}</Button>
+      </Bottom>
+    </Container>
   );
 };
