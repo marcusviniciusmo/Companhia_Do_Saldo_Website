@@ -12,6 +12,16 @@ export function Form() {
     setMockedData(MockedData)
   }, []);
 
+  const prevForm = () => {
+    if (index > 0)
+      setIndex(index - 1);
+  };
+
+  const nextForm = () => {
+    if (index + 1 < mockedData?.content!?.length)
+      setIndex(index + 1);
+  };
+
   return (
     <Container>
       <h1>FORM Component</h1>
@@ -19,6 +29,9 @@ export function Form() {
       <ProgressBar />
 
       <View src={mockedData?.content[index]} />
+
+      <button onClick={prevForm}>Voltar</button>
+      <button onClick={nextForm}>Avançar</button>
     </Container>
   );
 };
