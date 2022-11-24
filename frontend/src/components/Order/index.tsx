@@ -1,3 +1,4 @@
+import { ProgressBar } from "../ProgressBar";
 import { Identification } from "../Identification";
 import { Address } from "../Address";
 import { Message } from "../Message";
@@ -12,6 +13,8 @@ export function Order() {
         Gostaria de facilitar suas compras? Se cadastre, e com isso, você poderá
         fazer seus pedidos, sem sair de casa.
       </p>
+
+      <ProgressBar />
 
       <h3>FORMULÁRIO</h3>
       <Identification />
