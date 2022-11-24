@@ -1,3 +1,3 @@
 export interface FormProps {
-  children: React.ReactNode;
+  content: string[];
 };
