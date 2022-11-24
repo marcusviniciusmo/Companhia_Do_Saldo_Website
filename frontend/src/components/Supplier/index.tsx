@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { SupplierCard } from "../SupplierCard";
 import { SupplierProps } from "../../types/Supplier";
 import { MockedData } from "../../mocks/Supplier";
+import { ViewHeaderText } from "../../styles/ViewHeaderText";
+import { Container, Cards } from "./styles";
 
 export function Supplier() {
   const [mockedData, setMockedData] = useState<SupplierProps>();
@@ -11,12 +13,10 @@ export function Supplier() {
   }, []);
 
   return (
-    <>
-      <h1>SUPPLIER Component</h1>
+    <Container>
+      <ViewHeaderText>{mockedData?.text}</ViewHeaderText>
 
-      <p>{mockedData?.text}</p>
-
-      <>
+      <Cards>
         {
           mockedData?.suppliers.map((supplier) => {
             return (
@@ -30,7 +30,7 @@ export function Supplier() {
             )
           })
         }
-      </>
-    </>
+      </Cards>
+    </Container>
   );
 };
