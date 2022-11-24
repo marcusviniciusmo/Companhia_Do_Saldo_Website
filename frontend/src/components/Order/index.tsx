@@ -1,4 +1,5 @@
 import { ProgressBar } from "../ProgressBar";
+import { Form } from "../Form";
 import { Identification } from "../Identification";
 import { Address } from "../Address";
 import { Message } from "../Message";
@@ -14,18 +15,20 @@ export function Order() {
         fazer seus pedidos, sem sair de casa.
       </p>
 
-      <ProgressBar />
+      <Form>
+        <ProgressBar />
 
-      <h3>FORMULÁRIO</h3>
-      <Identification />
+        <h3>FORMULÁRIO</h3>
+        <Identification />
 
-      <Address />
+        <Address />
 
-      <Message />
+        <Message />
 
-      <Product />
+        <Product />
 
-      <h3>AQUI VAI UM BOTÃO</h3>
+        <h3>AQUI VAI UM BOTÃO</h3>
+      </Form>
     </>
   );
 };
