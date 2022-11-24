@@ -1,4 +1,5 @@
 import { Input } from "../Input";
+import { Select } from "../Select";
 
 export function Address() {
   return (
@@ -13,10 +14,10 @@ export function Address() {
       <Input />
 
       <h4>Estado:</h4>
-      <Input />
+      <Select />
 
       <h4>Cidade:</h4>
-      <Input />
+      <Select />
     </>
   );
 };
