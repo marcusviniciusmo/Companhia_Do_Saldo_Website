@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { Input } from "../Input";
+import { SetInput } from "../../utils/Functions";
 
 export function Identification() {
+  const [inputCpf, setInputCpf] = useState<string>('');
+  const [inputPhone, setInputPhone] = useState<string>('');
+  const [inputName, setInputName] = useState<string>('');
+  const [inputEmail, setInputEmail] = useState<string>('');
+  const [, setInputGender] = useState<string>('');
+  const [inputBirthday, setInputBirthday] = useState<string>();
+
   return (
     <>
       <h1>IDENTIFICATION Component</h1>
@@ -12,6 +21,8 @@ export function Identification() {
           id='fieldCpf'
           className="labelFloating"
           label='CPF'
+          value={inputCpf}
+          onChange={() => SetInput(event, setInputCpf)}
         />
 
         <Input
@@ -19,6 +30,8 @@ export function Identification() {
           id='fieldPhone'
           className="labelFloating"
           label='Celular'
+          value={inputPhone}
+          onChange={() => SetInput(event, setInputPhone)}
         />
 
         <Input
@@ -26,6 +39,8 @@ export function Identification() {
           id='fieldName'
           className="labelFloating"
           label='Nome'
+          value={inputName}
+          onChange={() => SetInput(event, setInputName)}
         />
 
         <Input
@@ -33,6 +48,8 @@ export function Identification() {
           id='fieldEmail'
           className="labelFloating"
           label='E-mail'
+          value={inputEmail}
+          onChange={() => SetInput(event, setInputEmail)}
         />
 
         <h4>Sexo:</h4>
@@ -42,6 +59,8 @@ export function Identification() {
           name='fieldGender'
           className='inputRadio'
           label='Masculino'
+          value='Masculino'
+          onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
@@ -50,6 +69,8 @@ export function Identification() {
           name='fieldGender'
           className='inputRadio'
           label='Feminino'
+          value='Feminino'
+          onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
@@ -58,6 +79,8 @@ export function Identification() {
           name='fieldGender'
           className='inputRadio'
           label='Outro'
+          value='Outro'
+          onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
@@ -65,6 +88,8 @@ export function Identification() {
           id='fieldBirthday'
           className="labelFloating"
           label='Data de Nascimento'
+          value={inputBirthday}
+          onChange={() => SetInput(event, setInputBirthday)}
         />
       </form>
     </>

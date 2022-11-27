@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Input } from "../Input";
 import { Select } from "../Select";
+import { SetInput } from "../../utils/Functions";
 
 export function Address() {
+  const [inputCep, setInputCep] = useState<string>('');
+  const [inputAddress, setInputAddress] = useState<string>('');
+  const [inputNumber, setInputNumber] = useState<string>('');
+  const [inputComplement, setInputComplement] = useState<string>('');
+  const [inputDistrict, setInputDistrict] = useState<string>('');
+
   return (
     <>
       <h1>ADDRESS Component</h1>
@@ -13,6 +21,8 @@ export function Address() {
           id='fieldCep'
           className="labelFloating"
           label='CEP'
+          value={inputCep}
+          onChange={() => SetInput(event, setInputCep)}
         />
 
         <Input
@@ -20,6 +30,8 @@ export function Address() {
           id='fieldAddress'
           className="labelFloating"
           label='Endereço'
+          value={inputAddress}
+          onChange={() => SetInput(event, setInputAddress)}
         />
 
         <Input
@@ -27,6 +39,8 @@ export function Address() {
           id='fieldNumber'
           className="labelFloating"
           label='Número'
+          value={inputNumber}
+          onChange={() => SetInput(event, setInputNumber)}
         />
 
         <Input
@@ -34,6 +48,8 @@ export function Address() {
           id='fieldComplement'
           className="labelFloating"
           label='Complemento'
+          value={inputComplement}
+          onChange={() => SetInput(event, setInputComplement)}
         />
 
         <Input
@@ -41,6 +57,8 @@ export function Address() {
           id='fieldDistrict'
           className="labelFloating"
           label='Bairro'
+          value={inputDistrict}
+          onChange={() => SetInput(event, setInputDistrict)}
         />
 
         <h4>Estado:</h4>

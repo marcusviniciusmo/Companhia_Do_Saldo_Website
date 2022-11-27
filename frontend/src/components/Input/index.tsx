@@ -6,7 +6,11 @@ export function Input(props: InputProps) {
     <Container className={props.className}>
       <Field {...props} />
 
-      <Label htmlFor={props.id}>{props.label}</Label>
+      <Label
+        htmlFor={props.id}
+        className={`${props.className} ${props.value && 'filled'}`}>
+        {props.label}
+      </Label>
     </Container>
   );
 };

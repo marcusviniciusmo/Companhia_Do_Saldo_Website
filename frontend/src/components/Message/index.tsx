@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Input } from "../Input";
 import { Textarea } from "../Textarea";
+import { SetInput } from "../../utils/Functions";
 
 export function Message() {
+  const [inputUrgency, setInputUrgency] = useState<string>('');
+
   return (
     <>
       <h1>MESSAGE Component</h1>
@@ -13,6 +17,11 @@ export function Message() {
           id='fieldUrgency'
           className='inputRange'
           label='Grau de Urgência'
+          min={0}
+          max={10}
+          step={2}
+          value={inputUrgency}
+          onChange={() => SetInput(event, setInputUrgency)}
         />
 
         <h4>Mensagem:</h4>

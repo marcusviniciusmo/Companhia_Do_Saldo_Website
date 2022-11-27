@@ -21,7 +21,8 @@ export const Container = styled.div`
     transition: 0.2s cubic-bezier(0, 0, 0.2, 1) 0s;
   }
 
-  &.labelFloating:focus-within ${Label} {
+  &.labelFloating:focus-within ${Label},
+  ${Label}.labelFloating.filled {
     background: var(--background);
     color: var(--color-primary);
     padding-inline: 0.5rem;
