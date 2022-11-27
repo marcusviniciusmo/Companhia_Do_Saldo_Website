@@ -6,12 +6,18 @@ export function Message() {
     <>
       <h1>MESSAGE Component</h1>
 
-      <h3>Mensagem do Cliente</h3>
-      <h4>Grau de Urgência:</h4>
-      <Input />
+      <form>
+        <h3>Mensagem do Cliente</h3>
+        <Input
+          type='range'
+          id='fieldUrgency'
+          className='inputRange'
+          label='Grau de Urgência'
+        />
 
-      <h4>Mensagem:</h4>
-      <Textarea />
+        <h4>Mensagem:</h4>
+        <Textarea />
+      </form>
     </>
   );
 };

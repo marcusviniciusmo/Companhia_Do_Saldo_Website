@@ -5,15 +5,28 @@ export function Product() {
     <>
       <h1>PRODUCT Component</h1>
 
-      <h3>Quero comprar</h3>
-      <h4>Produto:</h4>
-      <Input />
+      <form>
+        <h3>Quero comprar</h3>
+        <Input
+          type='text'
+          id='fieldProduct'
+          className="labelFloating"
+          label='Produto'
+        />
 
-      <h4>Cor:</h4>
-      <Input />
-      
-      <h4>Quantidade:</h4>
-      <Input />
+        <Input
+          type='text'
+          id='fieldQuantity'
+          className="labelFloating"
+          label='Quantidade'
+        />
+
+        <Input
+          type='color'
+          id='fieldColor'
+          label='Cor'
+        />
+      </form>
     </>
   );
 };
