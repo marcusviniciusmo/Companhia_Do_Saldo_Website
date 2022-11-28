@@ -48,7 +48,6 @@ export const Container = styled.div`
   }
 `;
 
-
 export const Field = styled.input`
   &.labelFloating {
     width: 30rem;
@@ -76,4 +75,22 @@ export const Field = styled.input`
   }
 `;
 
-export const Close = styled.div``;
+export const Close = styled.div`
+  display: none;
+
+  &.labelFloating.showClose {
+    font-size: 2rem;
+    display: block;
+    position: absolute;
+    top: 2.7rem;
+    left: 31.5rem;
+    transform: translate(-50%);
+    box-sizing: border-box;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &.labelFloating.showClose:hover {
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+`;

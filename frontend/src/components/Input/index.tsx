@@ -15,7 +15,11 @@ export function Input(props: InputProps) {
 
       {
         props.className === 'labelFloating' &&
-        <Close title='Limpar' onClick={props.clean && props.clean()}>
+        <Close
+          title='Limpar'
+          className={`${props.className} ${props.value && 'showClose'}`}
+          onClick={props.clean && props.clean()}
+        >
           <IoClose />
         </Close>
       }
