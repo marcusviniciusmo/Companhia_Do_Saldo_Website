@@ -10,3 +10,6 @@ npm i @types/styled-components
 
 // React Icons
 npm install react-icons --save
+
+// Axios
+npm i axios
