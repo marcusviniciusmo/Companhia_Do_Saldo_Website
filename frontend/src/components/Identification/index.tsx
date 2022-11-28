@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../Input";
+import { IdentificationProps } from "../../types/Identification";
+import { MockedData } from "../../mocks/Identification";
 import { SetInput } from "../../utils/Functions";
 
 export function Identification() {
+  const [mockedData, setMockedData] = useState<IdentificationProps>();
   const [inputCpf, setInputCpf] = useState<string>('');
   const [inputPhone, setInputPhone] = useState<string>('');
   const [inputName, setInputName] = useState<string>('');
@@ -19,90 +22,93 @@ export function Identification() {
   const cleanInputEmail = () => setInputEmail('');
   
   const cleanInputBirthday = () => setInputBirthday('');
-  
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
 
   return (
     <>
       <h1>IDENTIFICATION Component</h1>
 
       <form>
-        <h3>Identificação do Cliente</h3>
+        <h3>{mockedData?.legend}</h3>
         <Input
-          type='text'
-          id='fieldCpf'
-          className="labelFloating"
-          label='CPF'
+          type={mockedData?.inputs[0].type}
+          id={mockedData?.inputs[0].id}
+          className={mockedData?.inputs[0].className}
+          label={mockedData!?.inputs[0].label}
           value={inputCpf}
           onChange={() => SetInput(event, setInputCpf)}
           clean={() => cleanInputCpf}
         />
 
         <Input
-          type='text'
-          id='fieldPhone'
-          className="labelFloating"
-          label='Celular'
+          type={mockedData?.inputs[1].type}
+          id={mockedData?.inputs[1].id}
+          className={mockedData?.inputs[1].className}
+          label={mockedData!?.inputs[1].label}
           value={inputPhone}
           onChange={() => SetInput(event, setInputPhone)}
           clean={() => cleanInputPhone}
         />
 
         <Input
-          type='text'
-          id='fieldName'
-          className="labelFloating"
-          label='Nome'
+          type={mockedData?.inputs[2].type}
+          id={mockedData?.inputs[2].id}
+          className={mockedData?.inputs[2].className}
+          label={mockedData!?.inputs[2].label}
           value={inputName}
           onChange={() => SetInput(event, setInputName)}
           clean={() => cleanInputName}
         />
 
         <Input
-          type='email'
-          id='fieldEmail'
-          className="labelFloating"
-          label='E-mail'
+          type={mockedData?.inputs[3].type}
+          id={mockedData?.inputs[3].id}
+          className={mockedData?.inputs[3].className}
+          label={mockedData!?.inputs[3].label}
           value={inputEmail}
           onChange={() => SetInput(event, setInputEmail)}
           clean={() => cleanInputEmail}
         />
 
-        <h4>Sexo:</h4>
+        <h4>{mockedData?.subLegeng[0]}</h4>
         <Input
-          type='radio'
-          id='fieldGenderMale'
-          name='fieldGender'
-          className='inputRadio'
-          label='Masculino'
-          value='Masculino'
+          type={mockedData?.inputs[4].type}
+          id={mockedData?.inputs[4].id}
+          name={mockedData?.inputs[4].name}
+          className={mockedData?.inputs[4].className}
+          label={mockedData!?.inputs[4].label}
+          value={mockedData?.inputs[4].value}
           onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
-          type='radio'
-          id='fieldGenderFemale'
-          name='fieldGender'
-          className='inputRadio'
-          label='Feminino'
-          value='Feminino'
+          type={mockedData?.inputs[5].type}
+          id={mockedData?.inputs[5].id}
+          name={mockedData?.inputs[5].name}
+          className={mockedData?.inputs[5].className}
+          label={mockedData!?.inputs[5].label}
+          value={mockedData?.inputs[5].value}
           onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
-          type='radio'
-          id='fieldGenderOther'
-          name='fieldGender'
-          className='inputRadio'
-          label='Outro'
-          value='Outro'
+          type={mockedData?.inputs[6].type}
+          id={mockedData?.inputs[6].id}
+          name={mockedData?.inputs[6].name}
+          className={mockedData?.inputs[6].className}
+          label={mockedData!?.inputs[6].label}
+          value={mockedData?.inputs[6].value}
           onChange={() => SetInput(event, setInputGender)}
         />
 
         <Input
-          type='text'
-          id='fieldBirthday'
-          className="labelFloating"
-          label='Data de Nascimento'
+          type={mockedData?.inputs[7].type}
+          id={mockedData?.inputs[7].id}
+          className={mockedData?.inputs[7].className}
+          label={mockedData!?.inputs[7].label}
           value={inputBirthday}
           onChange={() => SetInput(event, setInputBirthday)}
           clean={() => cleanInputBirthday}
