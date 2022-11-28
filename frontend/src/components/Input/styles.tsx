@@ -75,3 +75,5 @@ export const Field = styled.input`
     cursor: pointer;
   }
 `;
+
+export const Close = styled.div``;

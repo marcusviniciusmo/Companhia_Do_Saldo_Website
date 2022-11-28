@@ -10,6 +10,17 @@ export function Address() {
   const [inputComplement, setInputComplement] = useState<string>('');
   const [inputDistrict, setInputDistrict] = useState<string>('');
 
+  const cleanInputCep = () => setInputCep('');
+  
+  const cleanInputAddress = () => setInputAddress('');
+  
+  const cleanInputNumber = () => setInputNumber('');
+  
+  const cleanInputComplement = () => setInputComplement('');
+  
+  const cleanInputDistrict = () => setInputDistrict('');
+  
+
   return (
     <>
       <h1>ADDRESS Component</h1>
@@ -23,6 +34,7 @@ export function Address() {
           label='CEP'
           value={inputCep}
           onChange={() => SetInput(event, setInputCep)}
+          clean={() => cleanInputCep}
         />
 
         <Input
@@ -32,6 +44,7 @@ export function Address() {
           label='Endereço'
           value={inputAddress}
           onChange={() => SetInput(event, setInputAddress)}
+          clean={() => cleanInputAddress}
         />
 
         <Input
@@ -41,6 +54,7 @@ export function Address() {
           label='Número'
           value={inputNumber}
           onChange={() => SetInput(event, setInputNumber)}
+          clean={() => cleanInputNumber}
         />
 
         <Input
@@ -50,6 +64,7 @@ export function Address() {
           label='Complemento'
           value={inputComplement}
           onChange={() => SetInput(event, setInputComplement)}
+          clean={() => cleanInputComplement}
         />
 
         <Input
@@ -59,6 +74,7 @@ export function Address() {
           label='Bairro'
           value={inputDistrict}
           onChange={() => SetInput(event, setInputDistrict)}
+          clean={() => cleanInputDistrict}
         />
 
         <h4>Estado:</h4>

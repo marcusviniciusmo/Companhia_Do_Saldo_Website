@@ -10,6 +10,17 @@ export function Identification() {
   const [, setInputGender] = useState<string>('');
   const [inputBirthday, setInputBirthday] = useState<string>();
 
+  const cleanInputCpf = () => setInputCpf('');
+  
+  const cleanInputPhone = () => setInputPhone('');
+  
+  const cleanInputName = () => setInputName('');
+  
+  const cleanInputEmail = () => setInputEmail('');
+  
+  const cleanInputBirthday = () => setInputBirthday('');
+  
+
   return (
     <>
       <h1>IDENTIFICATION Component</h1>
@@ -23,6 +34,7 @@ export function Identification() {
           label='CPF'
           value={inputCpf}
           onChange={() => SetInput(event, setInputCpf)}
+          clean={() => cleanInputCpf}
         />
 
         <Input
@@ -32,6 +44,7 @@ export function Identification() {
           label='Celular'
           value={inputPhone}
           onChange={() => SetInput(event, setInputPhone)}
+          clean={() => cleanInputPhone}
         />
 
         <Input
@@ -41,6 +54,7 @@ export function Identification() {
           label='Nome'
           value={inputName}
           onChange={() => SetInput(event, setInputName)}
+          clean={() => cleanInputName}
         />
 
         <Input
@@ -50,6 +64,7 @@ export function Identification() {
           label='E-mail'
           value={inputEmail}
           onChange={() => SetInput(event, setInputEmail)}
+          clean={() => cleanInputEmail}
         />
 
         <h4>Sexo:</h4>
@@ -90,6 +105,7 @@ export function Identification() {
           label='Data de Nascimento'
           value={inputBirthday}
           onChange={() => SetInput(event, setInputBirthday)}
+          clean={() => cleanInputBirthday}
         />
       </form>
     </>

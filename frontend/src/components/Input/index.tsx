@@ -1,5 +1,6 @@
+import { IoClose } from 'react-icons/io5';
 import { InputProps } from "../../types/Input";
-import { Container, Field, Label } from "./styles";
+import { Container, Field, Label, Close } from "./styles";
 
 export function Input(props: InputProps) {
   return (
@@ -11,6 +12,13 @@ export function Input(props: InputProps) {
         className={`${props.className} ${props.value && 'filled'}`}>
         {props.label}
       </Label>
+
+      {
+        props.className === 'labelFloating' &&
+        <Close title='Limpar' onClick={props.clean && props.clean()}>
+          <IoClose />
+        </Close>
+      }
     </Container>
   );
 };

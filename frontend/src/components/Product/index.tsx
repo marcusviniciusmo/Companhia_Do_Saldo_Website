@@ -7,6 +7,9 @@ export function Product() {
   const [inputQuantity, setInputQuantity] = useState<string>('');
   const [inputColor, setInputColor] = useState<string>('#0033FF');
 
+  const cleanInputProduct = () => setInputProduct('');
+  const cleanInputQuantity = () => setInputQuantity('');
+
   return (
     <>
       <h1>PRODUCT Component</h1>
@@ -20,6 +23,7 @@ export function Product() {
           label='Produto'
           value={inputProduct}
           onChange={() => SetInput(event, setInputProduct)}
+          clean={() => cleanInputProduct}
         />
 
         <Input
@@ -29,6 +33,7 @@ export function Product() {
           label='Quantidade'
           value={inputQuantity}
           onChange={() => SetInput(event, setInputQuantity)}
+          clean={() => cleanInputQuantity}
         />
 
         <Input
