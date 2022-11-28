@@ -3,6 +3,8 @@ import { Input } from "../Input";
 import { IdentificationProps } from "../../types/Identification";
 import { MockedData } from "../../mocks/Identification";
 import { SetInput } from "../../utils/Functions";
+import { Container, Legend } from "../../styles/Form";
+import { FieldsetId, FieldsetGender, Gender } from "./styles";
 
 export function Identification() {
   const [mockedData, setMockedData] = useState<IdentificationProps>();
@@ -14,13 +16,13 @@ export function Identification() {
   const [inputBirthday, setInputBirthday] = useState<string>();
 
   const cleanInputCpf = () => setInputCpf('');
-  
+
   const cleanInputPhone = () => setInputPhone('');
-  
+
   const cleanInputName = () => setInputName('');
-  
+
   const cleanInputEmail = () => setInputEmail('');
-  
+
   const cleanInputBirthday = () => setInputBirthday('');
 
   useEffect(() => {
@@ -28,11 +30,11 @@ export function Identification() {
   }, []);
 
   return (
-    <>
-      <h1>IDENTIFICATION Component</h1>
-
-      <form>
-        <h3>{mockedData?.legend}</h3>
+    <Container
+      method='POST'
+    >
+      <FieldsetId>
+        <Legend>{mockedData?.legend}</Legend>
         <Input
           type={mockedData?.inputs[0].type}
           id={mockedData?.inputs[0].id}
@@ -73,36 +75,44 @@ export function Identification() {
           clean={() => cleanInputEmail}
         />
 
-        <h4>{mockedData?.subLegeng[0]}</h4>
-        <Input
-          type={mockedData?.inputs[4].type}
-          id={mockedData?.inputs[4].id}
-          name={mockedData?.inputs[4].name}
-          className={mockedData?.inputs[4].className}
-          label={mockedData!?.inputs[4].label}
-          value={mockedData?.inputs[4].value}
-          onChange={() => SetInput(event, setInputGender)}
-        />
+        <FieldsetGender>
+          <Legend>{mockedData?.subLegeng[0]}</Legend>
+          <Gender>
+            <Input
+              type={mockedData?.inputs[4].type}
+              id={mockedData?.inputs[4].id}
+              name={mockedData?.inputs[4].name}
+              className={mockedData?.inputs[4].className}
+              label={mockedData!?.inputs[4].label}
+              value={mockedData?.inputs[4].value}
+              onChange={() => SetInput(event, setInputGender)}
+            />
+          </Gender>
 
-        <Input
-          type={mockedData?.inputs[5].type}
-          id={mockedData?.inputs[5].id}
-          name={mockedData?.inputs[5].name}
-          className={mockedData?.inputs[5].className}
-          label={mockedData!?.inputs[5].label}
-          value={mockedData?.inputs[5].value}
-          onChange={() => SetInput(event, setInputGender)}
-        />
+          <Gender>
+            <Input
+              type={mockedData?.inputs[5].type}
+              id={mockedData?.inputs[5].id}
+              name={mockedData?.inputs[5].name}
+              className={mockedData?.inputs[5].className}
+              label={mockedData!?.inputs[5].label}
+              value={mockedData?.inputs[5].value}
+              onChange={() => SetInput(event, setInputGender)}
+            />
+          </Gender>
 
-        <Input
-          type={mockedData?.inputs[6].type}
-          id={mockedData?.inputs[6].id}
-          name={mockedData?.inputs[6].name}
-          className={mockedData?.inputs[6].className}
-          label={mockedData!?.inputs[6].label}
-          value={mockedData?.inputs[6].value}
-          onChange={() => SetInput(event, setInputGender)}
-        />
+          <Gender>
+            <Input
+              type={mockedData?.inputs[6].type}
+              id={mockedData?.inputs[6].id}
+              name={mockedData?.inputs[6].name}
+              className={mockedData?.inputs[6].className}
+              label={mockedData!?.inputs[6].label}
+              value={mockedData?.inputs[6].value}
+              onChange={() => SetInput(event, setInputGender)}
+            />
+          </Gender>
+        </FieldsetGender>
 
         <Input
           type={mockedData?.inputs[7].type}
@@ -113,7 +123,7 @@ export function Identification() {
           onChange={() => SetInput(event, setInputBirthday)}
           clean={() => cleanInputBirthday}
         />
-      </form>
-    </>
+      </FieldsetId>
+    </Container>
   );
 };
