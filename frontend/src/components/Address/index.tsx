@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ViaCepApi } from "../../api";
 import { Input } from "../Input";
 import { Select } from "../Select";
+import { AddressViaCepApiProps } from "../../types/Address";
 import { SetInput } from "../../utils/Functions";
 
 export function Address() {
@@ -11,15 +13,29 @@ export function Address() {
   const [inputDistrict, setInputDistrict] = useState<string>('');
 
   const cleanInputCep = () => setInputCep('');
-  
+
   const cleanInputAddress = () => setInputAddress('');
-  
+
   const cleanInputNumber = () => setInputNumber('');
-  
+
   const cleanInputComplement = () => setInputComplement('');
-  
+
   const cleanInputDistrict = () => setInputDistrict('');
-  
+
+  const fillInputsByCep = (data: AddressViaCepApiProps) => {
+    setInputCep(data.cep);
+    setInputAddress(data.logradouro);
+    setInputDistrict(data.bairro);
+  };
+
+  useEffect(() => {
+    if (inputCep.length === 8) {
+      ViaCepApi.get(`${inputCep}/json/`)
+        .then((response) => {
+          fillInputsByCep(response.data);
+        })
+    }
+  }, [inputCep]);
 
   return (
     <>
