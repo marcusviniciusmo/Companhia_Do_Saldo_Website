@@ -50,9 +50,9 @@ export function Address() {
 
   useEffect(() => {
     IbgeApi.get('/estados?orderBy=nome')
-    .then((response) => {
-      setStatesList(response.data);
-    })
+      .then((response) => {
+        setStatesList(response.data);
+      })
   }, []);
 
   return (
@@ -112,10 +112,18 @@ export function Address() {
         />
 
         <h4>Estado:</h4>
-        <Select primaryList={statesList} secondaryList={regionsList} />
+        <Select
+          option={inputState}
+          primaryList={statesList}
+          secondaryList={regionsList}
+          onChange={() => SetInput(event, setInputState)}
+        />
 
         <h4>Cidade:</h4>
-        <Select primaryList={[]} />
+        <Select
+          option=''
+          primaryList={[]}
+        />
       </form>
     </>
   );

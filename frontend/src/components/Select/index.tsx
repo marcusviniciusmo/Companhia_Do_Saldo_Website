@@ -1,11 +1,13 @@
 import { SelectProps } from "../../types/Select";
 
 export function Select(props: SelectProps) {
+  const { primaryList, secondaryList, ...rest } = props;
+
   return (
     <>
       <h1>SELECT Component</h1>
 
-      <select>
+      <select {...rest} >
         {
           props.secondaryList &&
           props.secondaryList.map((r) => {
@@ -16,7 +18,9 @@ export function Select(props: SelectProps) {
                   props.primaryList.filter(s => s.regiao.id === r.id)
                     .map((state) => {
                       return (
-                        <option key={state.id}>{state.nome}</option>
+                        <option key={state.id} value={state.sigla}>
+                          {state.nome}
+                        </option>
                       )
                     })
                 }
