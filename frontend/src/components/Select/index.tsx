@@ -11,6 +11,15 @@ export function Select(props: SelectProps) {
           props.secondaryList.map((r) => {
             return (
               <optgroup key={r.id} label={r.nome}>
+                {
+                  props.primaryList &&
+                  props.primaryList.filter(s => s.regiao.id === r.id)
+                    .map((state) => {
+                      return (
+                        <option key={state.id}>{state.nome}</option>
+                      )
+                    })
+                }
               </optgroup>
             )
           })

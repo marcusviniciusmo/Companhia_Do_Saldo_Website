@@ -16,3 +16,10 @@ export interface AddressViaCepApiProps {
   ddd: string;
   siafi: string;
 };
+
+export interface AddressStatesProps {
+  id: number;
+  sigla: string;
+  nome: string;
+  regiao: AddressRegionsProps
+};
