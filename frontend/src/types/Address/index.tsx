@@ -1,3 +1,9 @@
+export interface AddressRegionsProps {
+  id: number;
+  sigla: string;
+  nome: string;
+};
+
 export interface AddressViaCepApiProps {
   cep: string;
   logradouro: string;

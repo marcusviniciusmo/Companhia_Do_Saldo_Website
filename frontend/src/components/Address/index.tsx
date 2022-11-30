@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ViaCepApi } from "../../api";
+import { ViaCepApi, IbgeApi } from "../../api";
 import { Input } from "../Input";
 import { Select } from "../Select";
-import { AddressViaCepApiProps } from "../../types/Address";
+import { AddressViaCepApiProps, AddressRegionsProps } from "../../types/Address";
 import { SetInput } from "../../utils/Functions";
 
 export function Address() {
@@ -11,6 +11,8 @@ export function Address() {
   const [inputNumber, setInputNumber] = useState<string>('');
   const [inputComplement, setInputComplement] = useState<string>('');
   const [inputDistrict, setInputDistrict] = useState<string>('');
+  const [inputState, setInputState] = useState<string>('');
+  const [regionsList, setRegionsList] = useState<AddressRegionsProps[]>([]);
 
   const cleanInputCep = () => setInputCep('');
 
@@ -26,6 +28,7 @@ export function Address() {
     setInputCep(data.cep);
     setInputAddress(data.logradouro);
     setInputDistrict(data.bairro);
+    setInputState(data.uf);
   };
 
   useEffect(() => {
@@ -33,9 +36,16 @@ export function Address() {
       ViaCepApi.get(`${inputCep}/json/`)
         .then((response) => {
           fillInputsByCep(response.data);
-        })
-    }
+        });
+    };
   }, [inputCep]);
+
+  useEffect(() => {
+    IbgeApi.get('/regioes')
+    .then((response) => {
+      setRegionsList(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -94,7 +104,7 @@ export function Address() {
         />
 
         <h4>Estado:</h4>
-        <Select />
+        <Select secondaryList={regionsList} />
 
         <h4>Cidade:</h4>
         <Select />
