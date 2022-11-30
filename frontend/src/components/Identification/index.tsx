@@ -4,6 +4,7 @@ import { IdentificationProps } from "../../types/Identification";
 import { MockedData } from "../../mocks/Identification";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend } from "../../styles/Form";
+import { InputRow } from "../../styles/InputRow";
 import { FieldsetId, FieldsetGender, Gender } from "./styles";
 
 export function Identification() {
@@ -35,45 +36,49 @@ export function Identification() {
     >
       <FieldsetId>
         <Legend>{mockedData?.legend}</Legend>
-        <Input
-          type={mockedData?.inputs[0].type}
-          id={mockedData?.inputs[0].id}
-          className={mockedData?.inputs[0].className}
-          label={mockedData!?.inputs[0].label}
-          value={inputCpf}
-          onChange={() => SetInput(event, setInputCpf)}
-          clean={() => cleanInputCpf}
-        />
+        <InputRow>
+          <Input
+            type={mockedData?.inputs[0].type}
+            id={mockedData?.inputs[0].id}
+            className={mockedData?.inputs[0].className}
+            label={mockedData!?.inputs[0].label}
+            value={inputCpf}
+            onChange={() => SetInput(event, setInputCpf)}
+            clean={() => cleanInputCpf}
+          />
 
-        <Input
-          type={mockedData?.inputs[1].type}
-          id={mockedData?.inputs[1].id}
-          className={mockedData?.inputs[1].className}
-          label={mockedData!?.inputs[1].label}
-          value={inputPhone}
-          onChange={() => SetInput(event, setInputPhone)}
-          clean={() => cleanInputPhone}
-        />
+          <Input
+            type={mockedData?.inputs[1].type}
+            id={mockedData?.inputs[1].id}
+            className={mockedData?.inputs[1].className}
+            label={mockedData!?.inputs[1].label}
+            value={inputPhone}
+            onChange={() => SetInput(event, setInputPhone)}
+            clean={() => cleanInputPhone}
+          />
+        </InputRow>
 
-        <Input
-          type={mockedData?.inputs[2].type}
-          id={mockedData?.inputs[2].id}
-          className={mockedData?.inputs[2].className}
-          label={mockedData!?.inputs[2].label}
-          value={inputName}
-          onChange={() => SetInput(event, setInputName)}
-          clean={() => cleanInputName}
-        />
+        <InputRow>
+          <Input
+            type={mockedData?.inputs[2].type}
+            id={mockedData?.inputs[2].id}
+            className={mockedData?.inputs[2].className}
+            label={mockedData!?.inputs[2].label}
+            value={inputName}
+            onChange={() => SetInput(event, setInputName)}
+            clean={() => cleanInputName}
+          />
 
-        <Input
-          type={mockedData?.inputs[3].type}
-          id={mockedData?.inputs[3].id}
-          className={mockedData?.inputs[3].className}
-          label={mockedData!?.inputs[3].label}
-          value={inputEmail}
-          onChange={() => SetInput(event, setInputEmail)}
-          clean={() => cleanInputEmail}
-        />
+          <Input
+            type={mockedData?.inputs[3].type}
+            id={mockedData?.inputs[3].id}
+            className={mockedData?.inputs[3].className}
+            label={mockedData!?.inputs[3].label}
+            value={inputEmail}
+            onChange={() => SetInput(event, setInputEmail)}
+            clean={() => cleanInputEmail}
+          />
+        </InputRow>
 
         <FieldsetGender>
           <Legend>{mockedData?.subLegeng[0]}</Legend>

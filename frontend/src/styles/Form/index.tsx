@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.form`
-  width: 60rem;
+  width: 72rem;
   margin: auto;
 
   fieldset {
