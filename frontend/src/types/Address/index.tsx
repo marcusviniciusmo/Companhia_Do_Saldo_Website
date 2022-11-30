@@ -1,7 +1,37 @@
+export interface AddressCitiesProps {
+  id: number;
+  nome: string;
+  microrregiao: {
+      id: number;
+      nome: string;
+      mesorregiao: {
+          id: number;
+          nome: string;
+          UF: AddressStatesProps;
+      };
+  };
+  "regiao-imediata": {
+      id: number;
+      nome: string;
+      "regiao-intermediaria": {
+          id: number;
+          nome: string;
+          UF: AddressStatesProps;
+      };
+  };
+};
+
 export interface AddressRegionsProps {
   id: number;
   sigla: string;
   nome: string;
+};
+
+export interface AddressStatesProps {
+  id: number;
+  sigla: string;
+  nome: string;
+  regiao: AddressRegionsProps
 };
 
 export interface AddressViaCepApiProps {
@@ -15,11 +45,4 @@ export interface AddressViaCepApiProps {
   gia: string;
   ddd: string;
   siafi: string;
-};
-
-export interface AddressStatesProps {
-  id: number;
-  sigla: string;
-  nome: string;
-  regiao: AddressRegionsProps
 };

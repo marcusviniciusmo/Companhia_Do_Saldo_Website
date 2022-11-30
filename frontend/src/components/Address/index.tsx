@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ViaCepApi, IbgeApi } from "../../api";
 import { Input } from "../Input";
 import { Select } from "../Select";
-import { AddressViaCepApiProps, AddressRegionsProps, AddressStatesProps } from "../../types/Address";
+import { AddressViaCepApiProps, AddressRegionsProps, AddressStatesProps, AddressCitiesProps } from "../../types/Address";
 import { SetInput } from "../../utils/Functions";
 
 export function Address() {
@@ -12,8 +12,10 @@ export function Address() {
   const [inputComplement, setInputComplement] = useState<string>('');
   const [inputDistrict, setInputDistrict] = useState<string>('');
   const [inputState, setInputState] = useState<string>('');
+  const [inputCity, setInputCity] = useState<string>('');
   const [regionsList, setRegionsList] = useState<AddressRegionsProps[]>([]);
   const [statesList, setStatesList] = useState<AddressStatesProps[]>([]);
+  const [citiesList, setCitiesList] = useState<AddressCitiesProps[]>([]);
 
   const cleanInputCep = () => setInputCep('');
 
@@ -30,6 +32,7 @@ export function Address() {
     setInputAddress(data.logradouro);
     setInputDistrict(data.bairro);
     setInputState(data.uf);
+    setInputCity(data.localidade);
   };
 
   useEffect(() => {
@@ -54,6 +57,13 @@ export function Address() {
         setStatesList(response.data);
       })
   }, []);
+
+  useEffect(() => {
+    IbgeApi.get(`estados/${inputState}/municipios?orderBy=nome`)
+    .then((response) => {
+      setCitiesList(response.data);
+    });
+  }, [inputState]);
 
   return (
     <>
@@ -113,16 +123,17 @@ export function Address() {
 
         <h4>Estado:</h4>
         <Select
-          option={inputState}
           primaryList={statesList}
           secondaryList={regionsList}
+          value={inputState}
           onChange={() => SetInput(event, setInputState)}
         />
 
         <h4>Cidade:</h4>
         <Select
-          option=''
-          primaryList={[]}
+          primaryList={citiesList}
+          value={inputCity}
+          onChange={() => SetInput(event, setInputCity)}
         />
       </form>
     </>
