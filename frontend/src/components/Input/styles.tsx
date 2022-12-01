@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  margin-inline: 0.3rem;
+`;
 
 export const Container = styled.div`
   &.labelFloating {
@@ -42,11 +44,20 @@ export const Container = styled.div`
   }
 
   &.inputRange {
+    margin-top: 4rem;
+    padding-inline: 1rem;
     display: flex;
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 1.5rem;
+
+    &:hover ${Label}{
+      color: var(--color-primary);
+      font-weight: bold;
+      opacity: 0.5;
+    }
   }
 `;
+
 
 export const Field = styled.input`
   &.labelFloating {
@@ -70,7 +81,7 @@ export const Field = styled.input`
   }
 
   &.inputRange {
-    width: 30rem;
+    width: 25rem;
     cursor: pointer;
   }
 `;
