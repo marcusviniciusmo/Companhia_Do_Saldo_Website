@@ -1,49 +1,69 @@
+import { useEffect, useState } from "react";
+import { ColorApi } from "../../api";
 import { Input } from "../Input";
+import Icon from '../../assets/product/iconProduct.png';
+import { ProductColorProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
-import { useState } from "react";
+import { Container, Legend, FieldsetForm } from "../../styles/Form";
+import { InputRow } from "../../styles/InputRow";
+import { ColorArea, Span, Color } from "./styles";
 
 export function Product() {
   const [inputProduct, setInputProduct] = useState<string>('');
   const [inputQuantity, setInputQuantity] = useState<string>('');
   const [inputColor, setInputColor] = useState<string>('#0033FF');
+  const [colorReference, setColorReference] = useState<ProductColorProps>();
 
   const cleanInputProduct = () => setInputProduct('');
   const cleanInputQuantity = () => setInputQuantity('');
 
+  useEffect(() => {
+    ColorApi.get(`id?hex=${inputColor.replace('#', '')}`)
+      .then((response) => {
+        setColorReference(response.data);
+      })
+  }, [inputColor]);
+
   return (
-    <>
-      <h1>PRODUCT Component</h1>
 
-      <form>
-        <h3>Quero comprar</h3>
-        <Input
-          type='text'
-          id='fieldProduct'
-          className="labelFloating"
-          label='Produto'
-          value={inputProduct}
-          onChange={() => SetInput(event, setInputProduct)}
-          clean={() => cleanInputProduct}
-        />
+    <Container method='POST'>
+      <FieldsetForm icon={Icon}>
+        <Legend>Quero comprar</Legend>
+        <InputRow>
+          <Input
+            type='text'
+            id='fieldProduct'
+            className="labelFloating"
+            label='Produto'
+            value={inputProduct}
+            onChange={() => SetInput(event, setInputProduct)}
+            clean={() => cleanInputProduct}
+          />
 
-        <Input
-          type='text'
-          id='fieldQuantity'
-          className="labelFloating"
-          label='Quantidade'
-          value={inputQuantity}
-          onChange={() => SetInput(event, setInputQuantity)}
-          clean={() => cleanInputQuantity}
-        />
+          <Input
+            type='text'
+            id='fieldQuantity'
+            className="labelFloating"
+            label='Quantidade'
+            value={inputQuantity}
+            onChange={() => SetInput(event, setInputQuantity)}
+            clean={() => cleanInputQuantity}
+          />
+        </InputRow>
 
-        <Input
-          type='color'
-          id='fieldColor'
-          label='Cor'
-          value={inputColor}
-          onChange={() => SetInput(event, setInputColor)}
-        />
-      </form>
-    </>
+        <ColorArea>
+          <Input
+            type='color'
+            id='fieldColor'
+            value={inputColor}
+            onChange={() => SetInput(event, setInputColor)}
+          />
+
+          <Span>Cor escolhida:</Span>
+
+          <Color src={colorReference?.image.bare} alt="Color" />
+        </ColorArea>
+      </FieldsetForm>
+    </Container>
   );
 };

@@ -12,4 +12,11 @@ export const IbgeApi = axios.create({
   headers: {
     "Content-type": 'application-json'
   }
-})
+});
+
+export const ColorApi = axios.create({
+  baseURL: 'https://www.thecolorapi.com/',
+  headers: {
+    "Content-type": 'application-json'
+  }
+});
