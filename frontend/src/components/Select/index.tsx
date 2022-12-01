@@ -1,13 +1,12 @@
 import { SelectProps } from "../../types/Select";
+import { Container, Field, Label } from "./styles";
 
 export function Select(props: SelectProps) {
   const { primaryList, secondaryList, ...rest } = props;
 
   return (
-    <>
-      <h1>SELECT Component</h1>
-
-      <select {...rest} >
+    <Container>
+      <Field {...rest} >
         {
           props.secondaryList
             ? <>
@@ -41,7 +40,9 @@ export function Select(props: SelectProps) {
               }
             </>
         }
-      </select>
-    </>
+      </Field>
+
+      <Label>{props.label}</Label>
+    </Container>
   );
 };

@@ -126,17 +126,17 @@ export function Address() {
           clean={() => cleanInputDistrict}
         />
 
-        <h4>Estado:</h4>
         <Select
           primaryList={statesList}
           secondaryList={regionsList}
+          label='Estado'
           value={inputState}
           onChange={() => SetInput(event, setInputState)}
         />
 
-        <h4>Cidade:</h4>
         <Select
           primaryList={citiesList}
+          label='Cidade'
           value={inputCity}
           onChange={() => SetInput(event, setInputCity)}
         />
