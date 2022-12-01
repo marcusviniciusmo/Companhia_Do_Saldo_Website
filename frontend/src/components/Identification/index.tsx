@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Input } from "../Input";
 import { IdentificationProps } from "../../types/Identification";
 import { MockedData } from "../../mocks/Identification";
+import Icon from '../../assets/identification/icon.png';
 import { SetInput } from "../../utils/Functions";
-import { Container, Legend } from "../../styles/Form";
+import { Container, Legend, FieldsetForm } from "../../styles/Form";
 import { InputRow } from "../../styles/InputRow";
-import { FieldsetId, FieldsetGender, Gender } from "./styles";
+import { FieldsetGender, Gender } from "./styles";
 
 export function Identification() {
   const [mockedData, setMockedData] = useState<IdentificationProps>();
@@ -31,10 +32,8 @@ export function Identification() {
   }, []);
 
   return (
-    <Container
-      method='POST'
-    >
-      <FieldsetId>
+    <Container method='POST'>
+      <FieldsetForm icon={Icon}>
         <Legend>{mockedData?.legend}</Legend>
         <InputRow>
           <Input
@@ -128,7 +127,7 @@ export function Identification() {
           onChange={() => SetInput(event, setInputBirthday)}
           clean={() => cleanInputBirthday}
         />
-      </FieldsetId>
+      </FieldsetForm>
     </Container>
   );
 };
