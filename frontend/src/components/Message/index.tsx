@@ -8,6 +8,9 @@ import { MessageArea, Urgency, Span } from "./styles";
 
 export function Message() {
   const [inputUrgency, setInputUrgency] = useState<string>('');
+  const [inputMessage, setInputMessage] = useState<string>('');
+
+  const cleanInputMessage = () => setInputMessage('');
 
   return (
     <Container method='POST'>
@@ -31,8 +34,15 @@ export function Message() {
             <Span>Máx</Span>
           </Urgency>
 
-          <h4>Mensagem:</h4>
-          <Textarea />
+          <Textarea
+            label='Mensagem'
+            className='labelFloating'
+            cols={30}
+            rows={10}
+            value={inputMessage}
+            onChange={() => SetInput(event, setInputMessage)}
+            clean={() => cleanInputMessage}
+          />
         </MessageArea>
       </FieldsetForm>
     </Container>
