@@ -17,7 +17,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  &:focus-within ${Label} {
+  &:focus-within ${Label},
+  ${Label}.filled {
     background: var(--background);
     color: var(--color-primary);
     padding-inline: 0.5rem;

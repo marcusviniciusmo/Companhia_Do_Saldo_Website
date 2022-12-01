@@ -42,7 +42,11 @@ export function Select(props: SelectProps) {
         }
       </Field>
 
-      <Label>{props.label}</Label>
+      <Label
+        className={props.primaryList ? 'filled' : ''}
+      >
+        {props.label}
+      </Label>
     </Container>
   );
 };
