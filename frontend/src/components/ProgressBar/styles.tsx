@@ -10,8 +10,9 @@ export const Container = styled.div`
   background: var(--background);
   text-align: center;
   border-radius: 0.5rem;
-  width: 75rem;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
   padding: 1rem 3.5rem;
 `;
 
