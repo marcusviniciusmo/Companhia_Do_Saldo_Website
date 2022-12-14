@@ -1,44 +1,18 @@
+import { ProgressBarProps } from "../../types/ProgressBar";
 import { Container, Content, Step, Text, Circle, Number, Icon } from "./styles";
-import { BiUser, BiHomeCircle, BiMessage, BiCart } from 'react-icons/bi';
 
-export function ProgressBar() {
-  const steps = {
-    activeId: 2,
-    content: [
-      {
-        id: 1,
-        title: 'Identificação',
-        icon: BiUser
-      },
-      {
-        id: 2,
-        title: 'Endereço',
-        icon: BiHomeCircle
-      },
-      {
-        id: 3,
-        title: 'Mensagem',
-        icon: BiMessage
-      },
-      {
-        id: 4,
-        title: 'Produto',
-        icon: BiCart
-      },
-    ]
-  };
-
+export function ProgressBar(props: ProgressBarProps) {
   return (
     <Container>
       <Content>
         {
-          steps.content.map((step) => {
+          props.content?.content.map((step) => {
             return (
               <Step
                 key={step.id}
-                className={steps.activeId === step.id
+                className={props.content.activeId === step.id
                   ? 'active'
-                  : steps.activeId > step.id
+                  : props.content.activeId > step.id
                     ? 'completed'
                     : ''}>
                 <Circle>

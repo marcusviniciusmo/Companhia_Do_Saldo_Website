@@ -9,8 +9,20 @@ export function Form() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setMockedData(MockedData)
+    setMockedData(MockedData);
+    setId(index);
   }, []);
+
+  useEffect(() => {
+    setId(index);
+  }, [index]);
+
+  const setId = (indexPage: number) => {
+    setMockedData(mock => ({
+      ...mock!,
+      activeId: indexPage + 1
+    }));
+  };
 
   const handleForm = (id: string) => {
     if (id === 'prev') {
@@ -24,9 +36,9 @@ export function Form() {
     <Container>
       <h1>FORM Component</h1>
 
-      <ProgressBar />
+      <ProgressBar content={mockedData!} />
 
-      <View src={mockedData?.content[index]} />
+      <View src={mockedData?.content[index].url} />
 
       <Bottom>
         {
