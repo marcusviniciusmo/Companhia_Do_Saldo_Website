@@ -34,8 +34,6 @@ export function Form() {
 
   return (
     <Container>
-      <h1>FORM Component</h1>
-
       <ProgressBar content={mockedData!} />
 
       <View src={mockedData?.content[index].url} />
