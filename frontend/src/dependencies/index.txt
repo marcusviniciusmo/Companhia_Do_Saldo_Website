@@ -13,3 +13,6 @@ npm install react-icons --save
 
 // Axios
 npm i axios
+
+// Radix-UI Checkbox
+npm install @radix-ui/react-checkbox
