@@ -79,7 +79,7 @@ export function Identification() {
         </InputRow>
 
         <FieldsetGender>
-          <Legend>{mockedData?.subLegeng[0]}</Legend>
+          <Legend>{mockedData?.subLegend[0]}</Legend>
           <Gender>
             <Input
               type={mockedData?.inputs[4].type}

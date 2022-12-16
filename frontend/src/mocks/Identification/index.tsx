@@ -2,7 +2,7 @@ import { IdentificationProps } from "../../types/Identification";
 
 export const MockedData: IdentificationProps = {
   legend: 'Identificação do Cliente',
-  subLegeng: ['Sexo:'],
+  subLegend: ['Sexo:'],
   inputs: [
     {
       type: 'text',

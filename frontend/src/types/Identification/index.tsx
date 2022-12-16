@@ -2,6 +2,6 @@ import { InputProps } from "../Input";
 
 export interface IdentificationProps {
   legend: string;
-  subLegeng: string[];
+  subLegend: string[];
   inputs: InputProps[];
 };
