@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { ProgressBar } from "../ProgressBar";
 import { FormProps } from "../../types/Form";
 import { MockedData } from "../../mocks/Form";
-import { Container, View, Bottom, Button } from "./styles";
+import { Container, View, Bottom } from "./styles";
+import { Button } from "../../styles/Form";
 
 export function Form() {
   const [mockedData, setMockedData] = useState<FormProps>();

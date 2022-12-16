@@ -4,8 +4,7 @@ import { IdentificationProps } from "../../types/Identification";
 import { MockedData } from "../../mocks/Identification";
 import Icon from '../../assets/identification/icon.png';
 import { SetInput } from "../../utils/Functions";
-import { Container, Legend, FieldsetForm } from "../../styles/Form";
-import { InputRow } from "../../styles/InputRow";
+import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 import { FieldsetGender, Gender } from "./styles";
 
 export function Identification() {

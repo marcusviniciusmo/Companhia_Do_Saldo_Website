@@ -23,3 +23,27 @@ export const FieldsetForm = styled.fieldset<FieldsetProps>`
   background: url(${(props) => props.icon}) no-repeat 95% 95%;
   min-height: 35rem;
 `;
+
+export const InputRow = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+export const Button = styled.button`
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  width: 12rem;
+  height: 3.5rem;
+  margin-block: 2rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  float: right;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-secondary);
+    color: var(--color-auxiliar)
+  }
+`;

@@ -4,8 +4,7 @@ import { Input } from "../Input";
 import Icon from '../../assets/product/iconProduct.png';
 import { ProductColorProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
-import { Container, Legend, FieldsetForm } from "../../styles/Form";
-import { InputRow } from "../../styles/InputRow";
+import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 import { ColorArea, Span, Color } from "./styles";
 
 export function Product() {

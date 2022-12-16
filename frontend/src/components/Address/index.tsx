@@ -5,8 +5,7 @@ import { Select } from "../Select";
 import Icon from '../../assets/address/iconAddress.png';
 import { AddressViaCepApiProps, AddressRegionsProps, AddressStatesProps, AddressCitiesProps } from "../../types/Address";
 import { SetInput } from "../../utils/Functions";
-import { Container, Legend, FieldsetForm } from "../../styles/Form";
-import { InputRow } from "../../styles/InputRow";
+import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 
 export function Address() {
   const [inputCep, setInputCep] = useState<string>('');

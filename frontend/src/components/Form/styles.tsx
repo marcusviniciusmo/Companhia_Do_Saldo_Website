@@ -23,21 +23,3 @@ export const Bottom = styled.div`
   justify-content: right;
   margin-right: 1rem;
 `;
-
-export const Button = styled.button`
-  background: var(--color-primary);
-  color: #FFFFFF;
-  font-size: 1.5rem;
-  width: 12rem;
-  height: 3.5rem;
-  margin: 1rem 0.5rem;
-  padding: 0.5rem 2rem;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background: var(--color-secondary);
-    color: var(--color-auxiliar);
-  }
-`;
