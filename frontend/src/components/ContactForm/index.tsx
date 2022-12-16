@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../Input";
 import { Textarea } from "../Textarea";
-import Icon from '../../assets/contact/icon.png';
 import { SetInput } from "../../utils/Functions";
+import { ContactFormProps } from "../../types/ContactForm";
+import { MockedData } from "../../mocks/ContactForm";
 import { Container as Form, FieldsetForm, Legend, InputRow, Button } from "../../styles/Form";
 import { ViewHeaderText } from "../../styles/ViewHeaderText";
 import { Container } from "./styles";
 
 export function ContactForm() {
+  const [mockedData, setMockedData] = useState<ContactFormProps>();
   const [inputName, setInputName] = useState<string>('');
   const [inputPhone, setInputPhone] = useState<string>('');
   const [inputEmail, setInputEmail] = useState<string>('');
   const [inputMessage, setInputMessage] = useState<string>('');
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
 
   const cleanInputName = () => setInputName('');
 
@@ -23,30 +29,27 @@ export function ContactForm() {
 
   return (
     <Container>
-      <ViewHeaderText>
-        Ajude-nos a melhorar o nosso atendimento. Reclamaçōes, dúvidas, sugestōes,
-        fale com a gente.
-      </ViewHeaderText>
+      <ViewHeaderText>{mockedData?.text}</ViewHeaderText>
 
       <Form>
-        <FieldsetForm icon={Icon}>
+        <FieldsetForm icon={mockedData!?.icon}>
           <Legend>Sugestões ou Reclamaçōes</Legend>
           <InputRow>
             <Input
-              type='text'
-              id='fieldNameContact'
-              className='labelFloating'
-              label='Nome'
+              type={mockedData?.inputs[0].type}
+              id={mockedData?.inputs[0].id}
+              className={mockedData?.inputs[0].className}
+              label={mockedData?.inputs[0].label}
               value={inputName}
               onChange={() => SetInput(event, setInputName)}
               clean={() => cleanInputName}
             />
 
             <Input
-              type='text'
-              id='fieldPhoneContact'
-              className='labelFloating'
-              label='Celular'
+              type={mockedData?.inputs[1].type}
+              id={mockedData?.inputs[1].id}
+              className={mockedData?.inputs[1].className}
+              label={mockedData?.inputs[1].label}
               value={inputPhone}
               onChange={() => SetInput(event, setInputPhone)}
               clean={() => cleanInputPhone}
@@ -54,19 +57,19 @@ export function ContactForm() {
           </InputRow>
 
           <Input
-            type='email'
-            id='fieldEmailContact'
-            className='labelFloating'
-            label='E-mail'
+            type={mockedData?.inputs[2].type}
+            id={mockedData?.inputs[2].id}
+            className={mockedData?.inputs[2].className}
+            label={mockedData?.inputs[2].label}
             value={inputEmail}
             onChange={() => SetInput(event, setInputEmail)}
             clean={() => cleanInputEmail}
           />
 
           <Textarea
-            id='fieldMessageContact'
-            className='labelFloating'
-            label='Mensagem'
+            id={mockedData?.inputs[3].id}
+            className={mockedData?.inputs[3].className}
+            label={mockedData?.inputs[3].label!}
             value={inputMessage}
             onChange={() => SetInput(event, setInputMessage)}
             clean={() => cleanInputMessage}
@@ -74,7 +77,7 @@ export function ContactForm() {
 
         </FieldsetForm>
 
-        <Button>Enviar</Button>
+        <Button>{mockedData?.labelSubmitButton}</Button>
       </Form>
     </Container>
   );
