@@ -21,5 +21,5 @@ export const View = styled.iframe`
 export const Bottom = styled.div`
   display: flex;
   justify-content: right;
-  margin-right: 1rem;
+  gap: 1rem;
 `;
