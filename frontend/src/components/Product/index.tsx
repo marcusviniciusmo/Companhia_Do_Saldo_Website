@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { ColorApi } from "../../api";
+import { BsCheck } from 'react-icons/bs';
 import { Input } from "../Input";
 import Icon from '../../assets/product/iconProduct.png';
 import { ProductColorProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
-import { ColorArea, Span, Color } from "./styles";
+import { ColorArea, Span, Color, CheckboxArea, Check, Indicator, Label } from "./styles";
 
 export function Product() {
   const [inputProduct, setInputProduct] = useState<string>('');
@@ -62,6 +63,17 @@ export function Product() {
 
           <Color src={colorReference?.image.bare} alt="Color" />
         </ColorArea>
+
+        <CheckboxArea>
+          <Check id='fieldCheckbox'>
+            <Indicator>
+              <BsCheck />
+            </Indicator>
+          </Check>
+
+          <Label htmlFor="fieldCheckbox">Li e concordo com os termos.</Label>
+        </CheckboxArea>
+
       </FieldsetForm>
     </Container>
   );
