@@ -10,6 +10,14 @@ export const Container = styled.form`
     border-color: #FFFFFF;
     border-radius: 1rem;
   }
+
+  &.contactForm {
+    background: var(--background);
+    width: 75%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
 `;
 
 export const Legend = styled.legend`

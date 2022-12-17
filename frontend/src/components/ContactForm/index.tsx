@@ -31,7 +31,7 @@ export function ContactForm() {
     <Container>
       <ViewHeaderText>{mockedData?.text}</ViewHeaderText>
 
-      <Form>
+      <Form className="contactForm">
         <FieldsetForm icon={mockedData!?.icon}>
           <Legend>Sugestões ou Reclamaçōes</Legend>
           <InputRow>
