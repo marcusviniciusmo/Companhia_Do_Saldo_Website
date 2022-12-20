@@ -8,13 +8,15 @@ export const MockedData: IdentificationProps = {
       type: 'text',
       id: 'fieldCpf',
       className: 'labelFloating',
-      label: 'CPF'
+      label: 'CPF',
+      maxLength: 11,
     },
     {
       type: 'text',
       id: 'fieldPhone',
       className: 'labelFloating',
-      label: 'Celular'
+      label: 'Celular: (XX) X XXXX-XXXX',
+      maxLength: 11
     },
     {
       type: 'text',
@@ -56,7 +58,8 @@ export const MockedData: IdentificationProps = {
       type: 'text',
       id: 'fieldBirthday',
       className: 'labelFloating',
-      label: 'Data de Nascimento'
+      label: 'Data de Nascimento (DD/MM/AAAA)',
+      maxLength: 8
     },
   ]
 };

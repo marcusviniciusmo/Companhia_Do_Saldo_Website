@@ -10,6 +10,9 @@ export function GetCurrentYear() {
   return now.getFullYear();
 };
 
-export function SetInput(event: any, setInput: Function) {
-  setInput(event.target.value);
+export function SetInput(event: any, setInput: Function, onlyNumbers = false) {
+  if (onlyNumbers)
+    setInput(event.target.value.replace(/[^0-9]/, ''));
+  else
+    setInput(event.target.value);
 };

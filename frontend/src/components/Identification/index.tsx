@@ -14,10 +14,22 @@ export function Identification() {
   const [inputName, setInputName] = useState<string>('');
   const [inputEmail, setInputEmail] = useState<string>('');
   const [, setInputGender] = useState<string>('');
-  const [inputBirthday, setInputBirthday] = useState<string>();
+  const [inputBirthday, setInputBirthday] = useState<string>('');
+  
+  const onlyNumbersInInput = true;
 
-  const cleanInputCpf = () => setInputCpf('');
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
 
+  const cleanInputCpf = () => {
+    setInputCpf('');
+    setInputPhone('');
+    setInputName('');
+    setInputEmail('');
+    setInputBirthday('');
+  };
+  
   const cleanInputPhone = () => setInputPhone('');
 
   const cleanInputName = () => setInputName('');
@@ -25,10 +37,6 @@ export function Identification() {
   const cleanInputEmail = () => setInputEmail('');
 
   const cleanInputBirthday = () => setInputBirthday('');
-
-  useEffect(() => {
-    setMockedData(MockedData);
-  }, []);
 
   return (
     <Container method='POST'>
@@ -40,9 +48,11 @@ export function Identification() {
             id={mockedData?.inputs[0].id}
             className={mockedData?.inputs[0].className}
             label={mockedData!?.inputs[0].label}
+            maxLength={mockedData?.inputs[0].maxLength}
             value={inputCpf}
-            onChange={() => SetInput(event, setInputCpf)}
+            onChange={() => SetInput(event, setInputCpf, onlyNumbersInInput)}
             clean={() => cleanInputCpf}
+            required
           />
 
           <Input
@@ -50,9 +60,11 @@ export function Identification() {
             id={mockedData?.inputs[1].id}
             className={mockedData?.inputs[1].className}
             label={mockedData!?.inputs[1].label}
+            maxLength={mockedData?.inputs[1].maxLength}
             value={inputPhone}
-            onChange={() => SetInput(event, setInputPhone)}
+            onChange={() => SetInput(event, setInputPhone, onlyNumbersInInput)}
             clean={() => cleanInputPhone}
+            required
           />
         </InputRow>
 
@@ -65,6 +77,7 @@ export function Identification() {
             value={inputName}
             onChange={() => SetInput(event, setInputName)}
             clean={() => cleanInputName}
+            required
           />
 
           <Input
@@ -122,9 +135,11 @@ export function Identification() {
           id={mockedData?.inputs[7].id}
           className={mockedData?.inputs[7].className}
           label={mockedData!?.inputs[7].label}
+          maxLength={mockedData?.inputs[7].maxLength}
           value={inputBirthday}
-          onChange={() => SetInput(event, setInputBirthday)}
+          onChange={() => SetInput(event, setInputBirthday, onlyNumbersInInput)}
           clean={() => cleanInputBirthday}
+          required
         />
       </FieldsetForm>
     </Container>
