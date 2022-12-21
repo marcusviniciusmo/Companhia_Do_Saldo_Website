@@ -1,3 +1,6 @@
+import { InputProps } from "../Input";
+import { SelectMocks } from "../Select";
+
 export interface AddressCitiesProps {
   id: number;
   nome: string;
@@ -19,6 +22,13 @@ export interface AddressCitiesProps {
           UF: AddressStatesProps;
       };
   };
+};
+
+export interface AddressProps {
+  icon: string;
+  legend: string;
+  inputs: InputProps[];
+  selects: SelectMocks[];
 };
 
 export interface AddressRegionsProps {

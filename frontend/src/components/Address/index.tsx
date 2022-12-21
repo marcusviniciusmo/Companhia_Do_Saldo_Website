@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { ViaCepApi, IbgeApi } from "../../api";
 import { Input } from "../Input";
 import { Select } from "../Select";
-import Icon from '../../assets/address/iconAddress.png';
-import { AddressViaCepApiProps, AddressRegionsProps, AddressStatesProps, AddressCitiesProps } from "../../types/Address";
+import { AddressViaCepApiProps, AddressProps, AddressRegionsProps, AddressStatesProps, AddressCitiesProps } from "../../types/Address";
+import { MockedData } from "../../mocks/Address";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 
 export function Address() {
+  const [mockedData, setMockedData] = useState<AddressProps>();
   const [inputCep, setInputCep] = useState<string>('');
   const [inputAddress, setInputAddress] = useState<string>('');
   const [inputNumber, setInputNumber] = useState<string>('');
@@ -36,6 +37,10 @@ export function Address() {
     setInputState(data.uf);
     setInputCity(data.localidade);
   };
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
 
   useEffect(() => {
     if (inputCep.length === 8) {
@@ -69,24 +74,24 @@ export function Address() {
 
   return (
     <Container method='POST'>
-      <FieldsetForm icon={Icon}>
-        <Legend>Endereço do Cliente</Legend>
+      <FieldsetForm icon={mockedData?.icon!}>
+        <Legend>{mockedData?.legend}</Legend>
         <InputRow>
           <Input
-            type='text'
-            id='fieldCep'
-            className="labelFloating"
-            label='CEP'
+            type={mockedData?.inputs[0].type}
+            id={mockedData?.inputs[0].id}
+            className={mockedData?.inputs[0].className}
+            label={mockedData?.inputs[0].label}
             value={inputCep}
             onChange={() => SetInput(event, setInputCep)}
             clean={() => cleanInputCep}
           />
 
           <Input
-            type='text'
-            id='fieldAddress'
-            className="labelFloating"
-            label='Endereço'
+            type={mockedData?.inputs[1].type}
+            id={mockedData?.inputs[1].id}
+            className={mockedData?.inputs[1].className}
+            label={mockedData?.inputs[1].label}
             value={inputAddress}
             onChange={() => SetInput(event, setInputAddress)}
             clean={() => cleanInputAddress}
@@ -95,20 +100,20 @@ export function Address() {
 
         <InputRow>
           <Input
-            type='text'
-            id='fieldNumber'
-            className="labelFloating"
-            label='Número'
+            type={mockedData?.inputs[2].type}
+            id={mockedData?.inputs[2].id}
+            className={mockedData?.inputs[2].className}
+            label={mockedData?.inputs[2].label}
             value={inputNumber}
             onChange={() => SetInput(event, setInputNumber)}
             clean={() => cleanInputNumber}
           />
 
           <Input
-            type='text'
-            id='fieldComplement'
-            className="labelFloating"
-            label='Complemento'
+            type={mockedData?.inputs[3].type}
+            id={mockedData?.inputs[3].id}
+            className={mockedData?.inputs[3].className}
+            label={mockedData?.inputs[3].label}
             value={inputComplement}
             onChange={() => SetInput(event, setInputComplement)}
             clean={() => cleanInputComplement}
@@ -116,10 +121,10 @@ export function Address() {
         </InputRow>
 
         <Input
-          type='text'
-          id='fieldDistrict'
-          className="labelFloating"
-          label='Bairro'
+          type={mockedData?.inputs[4].type}
+          id={mockedData?.inputs[4].id}
+          className={mockedData?.inputs[4].className}
+          label={mockedData?.inputs[4].label}
           value={inputDistrict}
           onChange={() => SetInput(event, setInputDistrict)}
           clean={() => cleanInputDistrict}
@@ -128,14 +133,14 @@ export function Address() {
         <Select
           primaryList={statesList}
           secondaryList={regionsList}
-          label='Estado'
+          label={mockedData!?.selects[0].label}
           value={inputState}
           onChange={() => SetInput(event, setInputState)}
         />
 
         <Select
           primaryList={citiesList}
-          label='Cidade'
+          label={mockedData!?.selects[1].label}
           value={inputCity}
           onChange={() => SetInput(event, setInputCity)}
         />
