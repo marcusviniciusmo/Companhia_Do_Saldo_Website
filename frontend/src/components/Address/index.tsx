@@ -20,23 +20,7 @@ export function Address() {
   const [statesList, setStatesList] = useState<AddressStatesProps[]>([]);
   const [citiesList, setCitiesList] = useState<AddressCitiesProps[]>([]);
 
-  const cleanInputCep = () => setInputCep('');
-
-  const cleanInputAddress = () => setInputAddress('');
-
-  const cleanInputNumber = () => setInputNumber('');
-
-  const cleanInputComplement = () => setInputComplement('');
-
-  const cleanInputDistrict = () => setInputDistrict('');
-
-  const fillInputsByCep = (data: AddressViaCepApiProps) => {
-    setInputCep(data.cep);
-    setInputAddress(data.logradouro);
-    setInputDistrict(data.bairro);
-    setInputState(data.uf);
-    setInputCity(data.localidade);
-  };
+  const onlyNumbersInInput = true;
 
   useEffect(() => {
     setMockedData(MockedData);
@@ -72,6 +56,32 @@ export function Address() {
       });
   }, [inputState]);
 
+  const fillInputsByCep = (data: AddressViaCepApiProps) => {
+    setInputCep(data.cep);
+    setInputAddress(data.logradouro);
+    setInputDistrict(data.bairro);
+    setInputState(data.uf);
+    setInputCity(data.localidade);
+  };
+
+  const cleanInputCep = () => {
+    setInputCep('');
+    setInputAddress('');
+    setInputNumber('');
+    setInputComplement('');
+    setInputDistrict('');
+    setInputState('');
+    setInputCity('');
+  };
+
+  const cleanInputAddress = () => setInputAddress('');
+
+  const cleanInputNumber = () => setInputNumber('');
+
+  const cleanInputComplement = () => setInputComplement('');
+
+  const cleanInputDistrict = () => setInputDistrict('');
+
   return (
     <Container method='POST'>
       <FieldsetForm icon={mockedData?.icon!}>
@@ -82,9 +92,11 @@ export function Address() {
             id={mockedData?.inputs[0].id}
             className={mockedData?.inputs[0].className}
             label={mockedData?.inputs[0].label}
+            maxLength={mockedData?.inputs[0].maxLength}
             value={inputCep}
-            onChange={() => SetInput(event, setInputCep)}
+            onChange={() => SetInput(event, setInputCep, onlyNumbersInInput)}
             clean={() => cleanInputCep}
+            required
           />
 
           <Input
@@ -92,9 +104,11 @@ export function Address() {
             id={mockedData?.inputs[1].id}
             className={mockedData?.inputs[1].className}
             label={mockedData?.inputs[1].label}
+            maxLength={mockedData?.inputs[1].maxLength}
             value={inputAddress}
             onChange={() => SetInput(event, setInputAddress)}
             clean={() => cleanInputAddress}
+            required
           />
         </InputRow>
 
@@ -107,6 +121,7 @@ export function Address() {
             value={inputNumber}
             onChange={() => SetInput(event, setInputNumber)}
             clean={() => cleanInputNumber}
+            required
           />
 
           <Input
@@ -128,6 +143,7 @@ export function Address() {
           value={inputDistrict}
           onChange={() => SetInput(event, setInputDistrict)}
           clean={() => cleanInputDistrict}
+          required
         />
 
         <Select
@@ -136,6 +152,7 @@ export function Address() {
           label={mockedData!?.selects[0].label}
           value={inputState}
           onChange={() => SetInput(event, setInputState)}
+          required
         />
 
         <Select
@@ -143,6 +160,7 @@ export function Address() {
           label={mockedData!?.selects[1].label}
           value={inputCity}
           onChange={() => SetInput(event, setInputCity)}
+          required
         />
       </FieldsetForm>
     </Container>

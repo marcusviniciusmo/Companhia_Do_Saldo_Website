@@ -9,13 +9,15 @@ export const MockedData: AddressProps = {
       type: 'text',
       id: 'fieldCep',
       className: 'labelFloating',
-      label: 'CEP'
+      label: 'CEP',
+      maxLength: 8
     },
     {
       type: 'text',
       id: 'fieldAddress',
       className: 'labelFloating',
-      label: 'Endereço'
+      label: 'Endereço',
+      maxLength: 100
     },
     {
       type: 'text',
