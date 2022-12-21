@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { ColorApi } from "../../api";
 import { BsCheck } from 'react-icons/bs';
 import { Input } from "../Input";
+import { ProductsList } from "../ProductsList";
 import Icon from '../../assets/product/iconProduct.png';
-import { ProductColorProps } from "../../types/Product";
+import { ProductColorProps, ProductToListProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 import { ColorArea, Span, Color, CheckboxArea, Check, Indicator, Label } from "./styles";
@@ -13,9 +14,7 @@ export function Product() {
   const [inputQuantity, setInputQuantity] = useState<string>('');
   const [inputColor, setInputColor] = useState<string>('#0033FF');
   const [colorReference, setColorReference] = useState<ProductColorProps>();
-
-  const cleanInputProduct = () => setInputProduct('');
-  const cleanInputQuantity = () => setInputQuantity('');
+  const [productsList, setProductsList] = useState<ProductToListProps[]>([]);
 
   useEffect(() => {
     ColorApi.get(`id?hex=${inputColor.replace('#', '')}`)
@@ -23,6 +22,21 @@ export function Product() {
         setColorReference(response.data);
       })
   }, [inputColor]);
+
+  const cleanInputProduct = () => setInputProduct('');
+
+  const cleanInputQuantity = () => setInputQuantity('');
+
+  const addProductToList = () => {
+    let newProduct: ProductToListProps = {
+      id: productsList.length + 1,
+      product: inputProduct,
+      quantity: inputQuantity,
+      color: inputColor
+    };
+
+    setProductsList([...productsList, newProduct])
+  };
 
   return (
 
@@ -62,7 +76,11 @@ export function Product() {
           <Span>Cor escolhida:</Span>
 
           <Color src={colorReference?.image.bare} alt="Color" />
+
+          <button type='button' onClick={addProductToList}>+</button>
         </ColorArea>
+
+        <ProductsList products={productsList}/>
 
         <CheckboxArea>
           <Check id='fieldCheckbox'>
