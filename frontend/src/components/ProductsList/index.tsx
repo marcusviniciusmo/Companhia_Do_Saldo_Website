@@ -1,33 +1,30 @@
 import { ProductsListProps } from "../../types/ProductsList";
+import { Container, Row, Header, CellHeader, Body, CellData } from "./styles";
 
 export function ProductsList(props: ProductsListProps) {
   return (
-    <>
-      <h1>PRODUCTS LIST Component</h1>
+    <Container>
+      <Header>
+        <Row>
+          <CellHeader>Produto</CellHeader>
+          <CellHeader>Quantidade</CellHeader>
+          <CellHeader>Color</CellHeader>
+        </Row>
+      </Header>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Color</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {
-            props.products.map((product) => {
-              return (
-                <tr key={product.id}>
-                  <td>{product.product}</td>
-                  <td>{product.quantity}</td>
-                  <td>{product.color}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
-    </>
+      <Body>
+        {
+          props.products.map((product) => {
+            return (
+              <Row key={product.id}>
+                <CellData>{product.product}</CellData>
+                <CellData>{product.quantity}</CellData>
+                <CellData>{product.color}</CellData>
+              </Row>
+            )
+          })
+        }
+      </Body>
+    </Container>
   );
 };

@@ -17,6 +17,30 @@ export const Color = styled.img`
   border: 0.2rem solid #FFFFFF;
 `;
 
+export const ButtonAdd = styled.button`
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  margin-left: 4rem;
+  border: 0.1rem solid var(--color-secondary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-secondary);
+    color: var(--color-auxiliar);
+  }
+`;
+
+export const List = styled.div`
+  height: 15rem;
+  margin-top: 1rem;
+  overflow: auto;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const CheckboxArea = styled.div`
   display: flex;
   align-items: center;

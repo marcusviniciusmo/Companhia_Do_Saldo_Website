@@ -7,7 +7,7 @@ import Icon from '../../assets/product/iconProduct.png';
 import { ProductColorProps, ProductToListProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
-import { ColorArea, Span, Color, CheckboxArea, Check, Indicator, Label } from "./styles";
+import { ColorArea, Span, Color, ButtonAdd, List, CheckboxArea, Check, Indicator, Label } from "./styles";
 
 export function Product() {
   const [inputProduct, setInputProduct] = useState<string>('');
@@ -77,10 +77,26 @@ export function Product() {
 
           <Color src={colorReference?.image.bare} alt="Color" />
 
-          <button type='button' onClick={addProductToList}>+</button>
+          <>
+            {
+              inputProduct && inputQuantity &&
+              <ButtonAdd
+                type='button'
+                title='Adicionar Produto'
+                onClick={addProductToList}
+              >
+                +
+              </ButtonAdd>
+            }
+          </>
         </ColorArea>
 
-        <ProductsList products={productsList}/>
+        <List>
+          {
+            productsList.length > 0 &&
+            <ProductsList products={productsList} />
+          }
+        </List>
 
         <CheckboxArea>
           <Check id='fieldCheckbox'>
