@@ -1,5 +1,7 @@
 import { BreadcrumbProps } from "../Breadcrumb";
+import { IconHeaderProps } from "../Global";
 
 export interface ProductsProps {
-  breadcrumb: BreadcrumbProps
+  breadcrumb: BreadcrumbProps;
+  icon: IconHeaderProps;
 };

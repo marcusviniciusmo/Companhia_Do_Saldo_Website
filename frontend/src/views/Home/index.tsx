@@ -20,7 +20,7 @@ export function Home() {
 
   return (
     <Interface>
-      <Header />
+      <Header icon={mockedData!?.icon} />
 
       <Breadcrumb path={mockedData?.breadcrumb.path!} />
 

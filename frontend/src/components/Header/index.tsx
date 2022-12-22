@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Menu } from "../Menu";
-import { HeaderProps } from "../../types/Header";
+import { HeaderMocks, HeaderProps } from "../../types/Header";
 import { MockedData } from "../../mocks/Header";
 import { Container, Title, Image, Icon } from "./styles";
-import IconMenu from '../../assets/header/home.png';
 
-export function Header() {
-  const [mockedData, setMockedData] = useState<HeaderProps>();
+export function Header(props: HeaderProps) {
+  const [mockedData, setMockedData] = useState<HeaderMocks>();
 
   useEffect(() => {
     setMockedData(MockedData);
@@ -16,10 +15,10 @@ export function Header() {
     <Container>
       <Title>{mockedData?.title}</Title>
       <Image src={mockedData?.image.url} alt={mockedData?.image.description} />
-      
+
       <Menu />
 
-      <Icon src={IconMenu} alt='' />
+      <Icon src={props.icon?.url} alt={props.icon?.description} />
     </Container>
   );
 };

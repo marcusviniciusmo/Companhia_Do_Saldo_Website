@@ -1,7 +1,7 @@
-import { HeaderProps } from "../../types/Header";
+import { HeaderMocks } from "../../types/Header";
 import Logo from '../../assets/header/logo.png';
 
-export const MockedData: HeaderProps = {
+export const MockedData: HeaderMocks = {
   title: 'A melhor malha está aqui',
   image: {
     url: Logo,

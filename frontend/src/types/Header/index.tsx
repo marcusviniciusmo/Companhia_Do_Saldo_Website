@@ -1,6 +1,10 @@
-import { ImageProps } from "../Global";
+import { IconHeaderProps, ImageProps } from "../Global";
 
-export interface HeaderProps {
+export interface HeaderMocks {
   title: string;
   image: ImageProps;
+};
+
+export interface HeaderProps {
+  icon: IconHeaderProps;
 };
