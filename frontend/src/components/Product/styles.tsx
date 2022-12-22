@@ -31,9 +31,15 @@ export const ButtonAdd = styled.button`
   }
 `;
 
+export const Added = styled.span`
+  font-size: 1.5rem;
+  margin-left: 2rem;
+`;
+
 export const List = styled.div`
+  width: 60%;
   height: 15rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   overflow: auto;
   
   &::-webkit-scrollbar {

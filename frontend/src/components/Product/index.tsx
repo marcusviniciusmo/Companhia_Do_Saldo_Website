@@ -7,7 +7,7 @@ import Icon from '../../assets/product/iconProduct.png';
 import { ProductColorProps, ProductToListProps } from "../../types/Product";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
-import { ColorArea, Span, Color, ButtonAdd, List, CheckboxArea, Check, Indicator, Label } from "./styles";
+import { ColorArea, Span, Color, ButtonAdd, Added, List, CheckboxArea, Check, Indicator, Label } from "./styles";
 
 export function Product() {
   const [inputProduct, setInputProduct] = useState<string>('');
@@ -36,6 +36,10 @@ export function Product() {
     };
 
     setProductsList([...productsList, newProduct])
+  };
+
+  const removeItemFromList = (id: number) => {
+    setProductsList(productsList.filter((p) => p.id !== id));
   };
 
   return (
@@ -80,13 +84,24 @@ export function Product() {
           <>
             {
               inputProduct && inputQuantity &&
-              <ButtonAdd
-                type='button'
-                title='Adicionar Produto'
-                onClick={addProductToList}
-              >
-                +
-              </ButtonAdd>
+              <>
+                <ButtonAdd
+                  type='button'
+                  title='Adicionar Produto'
+                  onClick={addProductToList}
+                >
+                  +
+                </ButtonAdd>
+
+                <>
+                  {
+                    productsList.length > 0 &&
+                    <Added>
+                      {productsList.length} produto(s) adicionado(s)
+                    </Added>
+                  }
+                </>
+              </>
             }
           </>
         </ColorArea>
@@ -94,7 +109,10 @@ export function Product() {
         <List>
           {
             productsList.length > 0 &&
-            <ProductsList products={productsList} />
+            <ProductsList
+              products={productsList}
+              removeItem={() => removeItemFromList}
+            />
           }
         </List>
 
