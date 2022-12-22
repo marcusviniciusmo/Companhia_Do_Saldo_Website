@@ -31,7 +31,7 @@ export function Header(props: HeaderProps) {
         onMouseLeave={() => restoreIconOnHover}
       />
 
-      <Icon src={iconMenu} alt={props.icon?.description} />
+      <Icon src={iconMenu ? iconMenu : props.icon?.url} alt={props.icon?.description} />
     </Container>
   );
 };
