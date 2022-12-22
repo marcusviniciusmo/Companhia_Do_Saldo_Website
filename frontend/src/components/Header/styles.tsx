@@ -22,3 +22,11 @@ export const Title = styled.h1`
 export const Image = styled.img`
   width: 31.5rem;
 `;
+
+export const Icon = styled.img`
+  width: 17rem;
+  height: 17rem;
+  position: absolute;
+  top: 8rem;
+  left: 110rem;
+`;
