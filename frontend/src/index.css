@@ -13,6 +13,11 @@
 
   --opacity-color-primary: #0033FF4D;
 
+  --max-z-index: 999;
+
+  --modal-background: #00000099;
+  --modal-border: #BBBBBB;
+
   --input-border: #CECECE;
   --input-label-color: #BBBBBB;
 

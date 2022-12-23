@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { ViaCepApi, IbgeApi } from "../../api";
 import { Input } from "../Input";
 import { Select } from "../Select";
+import { SearchCep } from "../../modais/SearchCep";
 import { AddressViaCepApiProps, AddressProps, AddressRegionsProps, AddressStatesProps, AddressCitiesProps } from "../../types/Address";
 import { MockedData } from "../../mocks/Address";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
+import { SearchCepContainer, SearchCepLabel } from "./styles";
 
 export function Address() {
   const [mockedData, setMockedData] = useState<AddressProps>();
@@ -19,6 +21,7 @@ export function Address() {
   const [regionsList, setRegionsList] = useState<AddressRegionsProps[]>([]);
   const [statesList, setStatesList] = useState<AddressStatesProps[]>([]);
   const [citiesList, setCitiesList] = useState<AddressCitiesProps[]>([]);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const onlyNumbersInInput = true;
 
@@ -82,10 +85,28 @@ export function Address() {
 
   const cleanInputDistrict = () => setInputDistrict('');
 
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <Container method='POST'>
       <FieldsetForm icon={mockedData?.icon!}>
         <Legend>{mockedData?.legend}</Legend>
+        <SearchCepContainer>
+          <SearchCepLabel
+            title='Buscar Cep'
+            onClick={toggleModal}
+          >
+            Não sei o meu CEP
+          </SearchCepLabel>
+        </SearchCepContainer>
+
+        {
+          openModal &&
+          <SearchCep close={() => toggleModal} />
+        }
+
         <InputRow>
           <Input
             type={mockedData?.inputs[0].type}
