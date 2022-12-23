@@ -52,8 +52,8 @@ export const CheckboxArea = styled.div`
   align-items: center;
   gap: 1rem;
   position: absolute;
-  bottom: 8rem;
-  left: 6rem;
+  bottom: -14rem;
+  left: 38rem;
 `;
 
 export const Check = styled(Checkbox.Root)`

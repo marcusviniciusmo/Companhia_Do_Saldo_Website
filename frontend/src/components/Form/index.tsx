@@ -37,7 +37,7 @@ export function Form() {
     <Container>
       <ProgressBar content={mockedData!} />
 
-      <View src={mockedData?.content[index].url} />
+      <View>{mockedData?.content[index].children}</View>
 
       <Bottom>
         {

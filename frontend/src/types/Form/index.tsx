@@ -5,6 +5,7 @@ export interface FormProps {
   content: {
     id: number;
     url: string;
+    children: React.ReactNode
     title: string;
     icon: IconType;
   }[];

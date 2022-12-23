@@ -9,7 +9,8 @@ export const Container = styled.div`
   box-shadow: 0.1rem 0.1rem 1rem var(--shadow-color);
 `;
 
-export const View = styled.iframe`
+export const View = styled.div`
+  background: var(--background);
   width: 100%;
   height: 42.5rem;
   border: none;
