@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Select } from '../../components/Select';
 import { Input } from '../../components/Input';
 import { SetInput } from '../../utils/Functions';
-import { SearchCepProps } from '../../types/SearchCep';
+import { SearchCepProps, SearchCepMocks } from '../../types/SearchCep';
+import { MockedData } from '../../mocks/SearchCep';
 import { Background, Container, Header, Title, Close, Body, Footer, Button } from './styles';
 
 export function SearchCep(props: SearchCepProps) {
+  const [mockedData, setMockedData] = useState<SearchCepMocks>();
   const [inputState, setInputState] = useState<string>(props.state);
   const [inputCity, setInputCity] = useState<string>(props.city);
   const [inputAddress, setInputAddress] = useState<string>(props.address);
@@ -17,6 +19,10 @@ export function SearchCep(props: SearchCepProps) {
   const setAddress = props.setAddress();
 
   const close = props.close();
+
+  useEffect(() => {
+    setMockedData(MockedData);
+  }, []);
 
   useEffect(() => {
     handleInputState();
@@ -40,10 +46,10 @@ export function SearchCep(props: SearchCepProps) {
     <Background>
       <Container>
         <Header>
-          <Title>Buscar CEP</Title>
+          <Title>{mockedData?.title}</Title>
 
           <Close
-            title='Fechar'
+            title={mockedData?.closeTitle}
             onClick={() => close()}
           />
         </Header>
@@ -52,7 +58,7 @@ export function SearchCep(props: SearchCepProps) {
           <Select
             primaryList={props.statesList}
             secondaryList={props.regionsList}
-            label='Estado'
+            label={mockedData!?.selects[0].label}
             value={inputState}
             onChange={() => SetInput(event, setInputState)}
             required
@@ -60,18 +66,18 @@ export function SearchCep(props: SearchCepProps) {
 
           <Select
             primaryList={props.citiesList}
-            label='Cidade'
+            label={mockedData!?.selects[1].label}
             value={inputCity}
             onChange={() => SetInput(event, setInputCity)}
             required
           />
 
           <Input
-            type='text'
-            id='fieldAddressModal'
-            className='labelFloating'
-            label='Endereço'
-            maxLength={100}
+            type={mockedData?.inputs[0].type}
+            id={mockedData?.inputs[0].id}
+            className={mockedData?.inputs[0].className}
+            label={mockedData?.inputs[0].label}
+            maxLength={mockedData?.inputs[0].maxLength}
             value={inputAddress}
             onChange={() => SetInput(event, setInputAddress)}
             clean={() => { }}
@@ -84,13 +90,13 @@ export function SearchCep(props: SearchCepProps) {
             className='cancelButton'
             onClick={() => close()}
             >
-            Cancelar
+            {mockedData?.buttonCancelLabel}
           </Button>
 
           <Button
             className='searchButton'
           >
-            Buscar
+            {mockedData?.buttonSearchLabel}
           </Button>
         </Footer>
       </Container>
