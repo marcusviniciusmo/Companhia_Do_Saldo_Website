@@ -107,6 +107,8 @@ export function Address() {
           <SearchCep
             regionsList={regionsList}
             statesList={statesList}
+            state={inputState}
+            setState={() => setInputState}
             close={() => toggleModal}
           />
         }
