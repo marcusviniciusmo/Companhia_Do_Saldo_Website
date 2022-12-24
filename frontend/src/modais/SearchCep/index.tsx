@@ -21,7 +21,7 @@ export function SearchCep(props: SearchCepProps) {
         <Body>
           <Select
             primaryList={[]}
-            secondaryList={[]}
+            secondaryList={props.regionsList}
             label='Estado'
             required
           />

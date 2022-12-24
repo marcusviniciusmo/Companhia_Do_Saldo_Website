@@ -104,7 +104,10 @@ export function Address() {
 
         {
           openModal &&
-          <SearchCep close={() => toggleModal} />
+          <SearchCep
+            regionsList={regionsList}
+            close={() => toggleModal}
+          />
         }
 
         <InputRow>
