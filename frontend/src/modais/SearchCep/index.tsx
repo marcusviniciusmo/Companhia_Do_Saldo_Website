@@ -43,7 +43,7 @@ export function SearchCep(props: SearchCepProps) {
           />
 
           <Select
-            primaryList={[]}
+            primaryList={props.citiesList}
             label='Cidade'
             required
           />
