@@ -7,17 +7,28 @@ import { Background, Container, Header, Title, Close, Body, Footer, Button } fro
 
 export function SearchCep(props: SearchCepProps) {
   const [inputState, setInputState] = useState<string>(props.state);
+  const [inputCity, setInputCity] = useState<string>(props.city);
 
   const setState = props.setState();
+
+  const setCity = props.setCity();
 
   const close = props.close();
 
   useEffect(() => {
-    handleInput();
+    handleInputState();
   }, [inputState]);
 
-  const handleInput = () => {
+  useEffect(() => {
+    handleInputCity();
+  }, [inputCity]);
+
+  const handleInputState = () => {
     setState(inputState);
+  };
+
+  const handleInputCity = () => {
+    setCity(inputCity);
   };
 
   return (
@@ -45,6 +56,8 @@ export function SearchCep(props: SearchCepProps) {
           <Select
             primaryList={props.citiesList}
             label='Cidade'
+            value={inputCity}
+            onChange={() => SetInput(event, setInputCity)}
             required
           />
 

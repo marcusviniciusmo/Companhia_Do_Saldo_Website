@@ -5,6 +5,8 @@ export interface SearchCepProps {
   statesList: AddressStatesProps[];
   citiesList: AddressCitiesProps[];
   state: string;
+  city: string;
   setState: Function;
+  setCity: Function;
   close: Function;
 };
