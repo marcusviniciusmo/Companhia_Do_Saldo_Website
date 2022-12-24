@@ -8,10 +8,13 @@ import { Background, Container, Header, Title, Close, Body, Footer, Button } fro
 export function SearchCep(props: SearchCepProps) {
   const [inputState, setInputState] = useState<string>(props.state);
   const [inputCity, setInputCity] = useState<string>(props.city);
+  const [inputAddress, setInputAddress] = useState<string>(props.address);
 
   const setState = props.setState();
 
   const setCity = props.setCity();
+
+  const setAddress = props.setAddress();
 
   const close = props.close();
 
@@ -23,13 +26,15 @@ export function SearchCep(props: SearchCepProps) {
     handleInputCity();
   }, [inputCity]);
 
-  const handleInputState = () => {
-    setState(inputState);
-  };
+  useEffect(() => {
+    handleInputAddress();
+  }, [inputAddress]);
 
-  const handleInputCity = () => {
-    setCity(inputCity);
-  };
+  const handleInputState = () => setState(inputState);
+
+  const handleInputCity = () => setCity(inputCity);
+
+  const handleInputAddress = () => setAddress(inputAddress);
 
   return (
     <Background>
@@ -67,6 +72,8 @@ export function SearchCep(props: SearchCepProps) {
             className='labelFloating'
             label='Endereço'
             maxLength={100}
+            value={inputAddress}
+            onChange={() => SetInput(event, setInputAddress)}
             clean={() => { }}
             required
           />

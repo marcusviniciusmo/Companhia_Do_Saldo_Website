@@ -110,8 +110,10 @@ export function Address() {
             citiesList={citiesList}
             state={inputState}
             city={inputCity}
+            address={inputAddress}
             setState={() => setInputState}
             setCity={() => setInputCity}
+            setAddress={() => setInputAddress}
             close={() => toggleModal}
           />
         }
