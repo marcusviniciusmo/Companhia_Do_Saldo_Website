@@ -106,6 +106,7 @@ export function Address() {
           openModal &&
           <SearchCep
             regionsList={regionsList}
+            statesList={statesList}
             close={() => toggleModal}
           />
         }
