@@ -13,7 +13,7 @@ export const CellHeader = styled.th`
   color: #FFFFFF;
   padding: 0.5rem 2rem;
   border-radius: 0.3rem;
-  `;
+`;
 
 export const Body = styled.tbody``;
 

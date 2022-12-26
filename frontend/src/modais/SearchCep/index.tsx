@@ -47,6 +47,10 @@ export function SearchCep(props: SearchCepProps) {
 
   const handleInputAddress = () => setAddress(inputAddress);
 
+  const toggleModal = () => {
+    setOpenModalResult(!openModalResult);
+  };
+
   const getCepByAddress = () => {
     if (inputState && inputCity && inputAddress) {
       ViaCepApi.get(`${inputState}/${inputCity}/${inputAddress}/json/`)
@@ -119,6 +123,7 @@ export function SearchCep(props: SearchCepProps) {
             openModalResult &&
             <ResultCep
               cepList={cepList}
+              close={() => toggleModal}
             />
           }
         </Footer>

@@ -1,41 +1,64 @@
 import { Input } from '../../components/Input';
 import { ResultCepProps } from '../../types/ResultCep';
 import { Background } from '../../styles/Modal';
-import { Container } from './styles';
+import { Container, Header, Title, Close, Table, Row, HeaderTable, CellHeader, BodyTable, CellData, Footer, Button } from './styles';
 
 export function ResultCep(props: ResultCepProps) {
+  const close = props.close();
+
   return (
     <Background>
       <Container>
-        <h1>RESULT CEP Modal</h1>
+        <Header>
+          <Title>CEPs Encontrados</Title>
 
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Logradouro</th>
-              <th>Complemento</th>
-              <th>Localidade</th>
-              <th>CEP</th>
-            </tr>
-          </thead>
+          <Close
+            title='Fechar'
+            onClick={() => close()}
+          />
+        </Header>
 
-          <tbody>
+        <Table>
+          <HeaderTable>
+            <Row>
+              <CellHeader></CellHeader>
+              <CellHeader>Logradouro</CellHeader>
+              <CellHeader>Complemento</CellHeader>
+              <CellHeader>Localidade</CellHeader>
+              <CellHeader>CEP</CellHeader>
+            </Row>
+          </HeaderTable>
+
+          <BodyTable>
             {
               props.cepList.map((cepItem) => {
                 return (
-                  <tr key={cepItem.cep}>
-                    <td><Input type='radio' name='cepItem'/></td>
-                    <td>{cepItem.logradouro}</td>
-                    <td>{cepItem.complemento}</td>
-                    <td>{`${cepItem.bairro} - ${cepItem.localidade} / ${cepItem.uf}`}</td>
-                    <td>{cepItem.cep}</td>
-                  </tr>
+                  <Row key={cepItem.cep}>
+                    <CellData>
+                      <Input type='radio' name='cepItem' />
+                    </CellData>
+                    <CellData>{cepItem.logradouro}</CellData>
+                    <CellData>{cepItem.complemento}</CellData>
+                    <CellData>
+                      {`${cepItem.bairro} - ${cepItem.localidade} / ${cepItem.uf}`}
+                    </CellData>
+                    <CellData>{cepItem.cep}</CellData>
+                  </Row>
                 )
               })
             }
-          </tbody>
-        </table>
+          </BodyTable>
+        </Table>
+
+        <Footer>
+          <Button className='cancelButton'>
+            Cancelar
+          </Button>
+
+          <Button className='selectButton'>
+            Selecionar
+          </Button>
+        </Footer>
       </Container>
     </Background>
   );
