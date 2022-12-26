@@ -1,6 +1,19 @@
 import { InputProps } from "../Input";
-import { SelectMocks, SelectProps } from "../Select";
+import { SelectMocks } from "../Select";
 import { AddressCitiesProps, AddressRegionsProps, AddressStatesProps } from "../Address";
+
+export interface SearchCepListProps {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  ibge: string;
+  gia: string;
+  ddd: string;
+  siafi: string;
+};
 
 export interface SearchCepMocks {
   title: string;
