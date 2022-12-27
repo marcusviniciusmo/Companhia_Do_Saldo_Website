@@ -111,9 +111,11 @@ export function Address() {
             state={inputState}
             city={inputCity}
             address={inputAddress}
+            cep={inputCep}
             setState={() => setInputState}
             setCity={() => setInputCity}
             setAddress={() => setInputAddress}
+            setCep={() => setInputCep}
             close={() => toggleModal}
           />
         }

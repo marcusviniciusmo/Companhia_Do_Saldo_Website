@@ -1,10 +1,34 @@
+import { useEffect, useState } from 'react';
 import { Input } from '../../components/Input';
+import { SetInput } from '../../utils/Functions';
 import { ResultCepProps } from '../../types/ResultCep';
 import { Background } from '../../styles/Modal';
 import { Container, Header, Title, Close, Table, Row, HeaderTable, CellHeader, BodyTable, CellData, Footer, Button } from './styles';
 
 export function ResultCep(props: ResultCepProps) {
-  const close = props.close();
+  const [inputCep, setInputCep] = useState<string>('');
+
+  const setCep = props.setCep();
+
+  const onlyNumbersInInput = true;
+
+  const closeSearchModal = props.closeSearchModal();
+
+  const closeResultModal = props.closeResultModal();
+
+  useEffect(() => {
+    handleInputCep();
+  }, [inputCep]);
+
+  const handleInputCep = () => {
+    setCep(inputCep);
+  };
+
+  const updateAddress = () => {
+    handleInputCep();
+    closeResultModal();
+    closeSearchModal();
+  };
 
   return (
     <Background>
@@ -14,7 +38,7 @@ export function ResultCep(props: ResultCepProps) {
 
           <Close
             title='Fechar'
-            onClick={() => close()}
+            onClick={() => closeResultModal()}
           />
         </Header>
 
@@ -35,7 +59,12 @@ export function ResultCep(props: ResultCepProps) {
                 return (
                   <Row key={cepItem.cep}>
                     <CellData>
-                      <Input type='radio' name='cepItem' />
+                      <Input
+                        type='radio'
+                        name='cepItem'
+                        value={cepItem.cep}
+                        onChange={() => SetInput(event, setInputCep, onlyNumbersInInput)}
+                      />
                     </CellData>
                     <CellData>{cepItem.logradouro}</CellData>
                     <CellData>{cepItem.complemento}</CellData>
@@ -55,7 +84,10 @@ export function ResultCep(props: ResultCepProps) {
             Cancelar
           </Button>
 
-          <Button className='selectButton'>
+          <Button
+            className='selectButton'
+            onClick={updateAddress}
+          >
             Selecionar
           </Button>
         </Footer>

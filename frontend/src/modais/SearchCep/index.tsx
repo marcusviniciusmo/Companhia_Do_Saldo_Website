@@ -23,6 +23,8 @@ export function SearchCep(props: SearchCepProps) {
 
   const setAddress = props.setAddress();
 
+  const setCep = props.setCep();
+
   const close = props.close();
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export function SearchCep(props: SearchCepProps) {
 
   const handleInputAddress = () => setAddress(inputAddress);
 
-  const toggleModal = () => {
+  const toggleResultModal = () => {
     setOpenModalResult(!openModalResult);
   };
 
@@ -123,7 +125,10 @@ export function SearchCep(props: SearchCepProps) {
             openModalResult &&
             <ResultCep
               cepList={cepList}
-              close={() => toggleModal}
+              cep={props.cep}
+              setCep={() => setCep}
+              closeSearchModal={() => close}
+              closeResultModal={() => toggleResultModal}
             />
           }
         </Footer>

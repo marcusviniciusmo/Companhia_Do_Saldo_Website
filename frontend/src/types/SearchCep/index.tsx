@@ -31,8 +31,10 @@ export interface SearchCepProps {
   state: string;
   city: string;
   address: string;
+  cep: string;
   setState: Function;
   setCity: Function;
   setAddress: Function;
+  setCep: Function;
   close: Function;
 };
