@@ -53,7 +53,7 @@ export const CheckboxArea = styled.div`
   gap: 1rem;
   position: absolute;
   bottom: -14rem;
-  left: 23rem;
+  left: 38rem;
 `;
 
 export const Check = styled(Checkbox.Root)`
