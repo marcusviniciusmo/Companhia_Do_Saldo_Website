@@ -8,6 +8,7 @@ import { MockedData } from "../../mocks/Address";
 import { SetInput } from "../../utils/Functions";
 import { Container, Legend, FieldsetForm, InputRow } from "../../styles/Form";
 import { SearchCepContainer, SearchCepLabel } from "./styles";
+import { Loader } from "../Loader";
 
 export function Address() {
   const [mockedData, setMockedData] = useState<AddressProps>();
@@ -22,6 +23,7 @@ export function Address() {
   const [statesList, setStatesList] = useState<AddressStatesProps[]>([]);
   const [citiesList, setCitiesList] = useState<AddressCitiesProps[]>([]);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onlyNumbersInInput = true;
 
@@ -53,9 +55,12 @@ export function Address() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
+
     IbgeApi.get(`estados/${inputState}/municipios?orderBy=nome`)
       .then((response) => {
         setCitiesList(response.data);
+        setIsLoading(false);
       });
   }, [inputState]);
 
@@ -189,13 +194,17 @@ export function Address() {
           required
         />
 
-        <Select
-          primaryList={citiesList}
-          label={mockedData!?.selects[1].label}
-          value={inputCity}
-          onChange={() => SetInput(event, setInputCity)}
-          required
-        />
+        {
+          isLoading
+            ? <Loader />
+            : <Select
+              primaryList={citiesList}
+              label={mockedData!?.selects[1].label}
+              value={inputCity}
+              onChange={() => SetInput(event, setInputCity)}
+              required
+            />
+        }
       </FieldsetForm>
     </Container>
   );
